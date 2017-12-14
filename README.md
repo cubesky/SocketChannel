@@ -158,6 +158,12 @@ try (UDPSocket udpSocket = new UDPSocket(20000, scUDPCallback)) {
 } //UDPSocket will automatic close
 ```
 
+## Dependency
+
+| Name  | Description                    | Package Name       |  
+|:--    |:--                             |:--                 |  
+| Guava | Google Core Libraries for Java | `com.google.guava` |  
+
 ## License
 
 This library is under GPLv3.
