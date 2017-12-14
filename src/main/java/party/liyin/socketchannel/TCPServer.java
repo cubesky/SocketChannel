@@ -1,5 +1,6 @@
 package party.liyin.socketchannel;
 
+import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
 import java.io.ByteArrayOutputStream;
@@ -144,6 +145,20 @@ public class TCPServer implements Closeable {
                 }
             }
         });
+    }
+
+    /**
+     * Check if id is same host
+     *
+     * @param id1 First ID
+     * @param id2 Second ID
+     * @return return true if ID is the same host
+     */
+    public boolean isSameHost(long id1, long id2) {
+        BiMap<Long, SocketChannel> inverse = peerMap.inverse();
+        String host1 = inverse.get(id1).socket().getInetAddress().getHostAddress();
+        String host2 = inverse.get(id2).socket().getInetAddress().getHostAddress();
+        return host1.equals(host2);
     }
 
     /**

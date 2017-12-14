@@ -1,10 +1,24 @@
 group 'party.liyin'
-version '1.0'
+version '2.0'
 
 apply plugin: 'java'
-
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
+
+publishing {
+    publications {
+        mavenJava(MavenPublication){
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url 'D:\\Development\\WorkSpace\\GitSpace\\cubesky-mvn.github.io'
+        }
+    }
+}
 
 repositories {
     jcenter()
