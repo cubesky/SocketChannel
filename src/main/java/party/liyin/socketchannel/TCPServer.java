@@ -21,7 +21,7 @@ import java.util.concurrent.Executors;
 public class TCPServer implements Closeable {
     private MessageQueue messageQueue = new MessageQueue();
     private HashBiMap<SocketChannel, Long> peerMap = HashBiMap.create();
-    private TCPSocket.SkyTCPCallback skyTCPCallback;
+    private TCPSocket.SCTCPCallback scTCPCallback;
     private ServerSocketChannel serverSocketChannel;
     private InetSocketAddress address;
     private Selector selector;
@@ -32,14 +32,14 @@ public class TCPServer implements Closeable {
      * TCP NIO Server
      *
      * @param address        Bind IP and Port
-     * @param skyTCPCallback TCP Callback
+     * @param scTCPCallback TCP Callback
      * @throws IOException
      */
-    public TCPServer(InetSocketAddress address, TCPSocket.SkyTCPCallback skyTCPCallback) throws IOException {
+    public TCPServer(InetSocketAddress address, TCPSocket.SCTCPCallback scTCPCallback) throws IOException {
         serverSocketChannel = ServerSocketChannel.open();
         serverSocketChannel.configureBlocking(false);
         this.address = address;
-        this.skyTCPCallback = skyTCPCallback;
+        this.scTCPCallback = scTCPCallback;
     }
 
     /**
@@ -70,7 +70,7 @@ public class TCPServer implements Closeable {
                                 socketChannel.register(selector, SelectionKey.OP_READ);
                                 long id = Utils.getNewUniqueId(peerMap);
                                 peerMap.put(socketChannel, id);
-                                messageQueue.offer(new NotificationRunnable(skyTCPCallback, new NotificationBean_ConnectionState(id, TCPSocket.ConnectState.CONNECT)));
+                                messageQueue.offer(new NotificationTask(scTCPCallback, new ConnectionStateNotification(id, TCPSocket.ConnectState.CONNECT)));
                             } else if (key.isReadable()) {
                                 SocketChannel socketChannel = (SocketChannel) key.channel();
                                 Long id = peerMap.get(socketChannel);
@@ -92,7 +92,7 @@ public class TCPServer implements Closeable {
                                 } catch (IOException e) {
                                     key.cancel();
                                     peerMap.remove(socketChannel);
-                                    messageQueue.offer(new NotificationRunnable(skyTCPCallback, new NotificationBean_ConnectionState(id, TCPSocket.ConnectState.DISCONNECT)));
+                                    messageQueue.offer(new NotificationTask(scTCPCallback, new ConnectionStateNotification(id, TCPSocket.ConnectState.DISCONNECT)));
                                     selectionKeyIterator.remove();
                                     continue;
                                 }
@@ -101,7 +101,7 @@ public class TCPServer implements Closeable {
                                 byte cmd = resultArray[0];
                                 System.arraycopy(resultArray, 1, resultData, 0, resultArray.length - 1);
                                 if (cmd == 0) {
-                                    messageQueue.offer(new NotificationRunnable(skyTCPCallback, new NotificationBean_DataArrived(id, resultData)));
+                                    messageQueue.offer(new NotificationTask(scTCPCallback, new TCPDataArrivedNotification(id, resultData)));
                                 } else if (cmd == 1) {
                                     final long fid = id;
                                     new Thread(new Runnable() {
@@ -121,7 +121,7 @@ public class TCPServer implements Closeable {
                                                         try {
                                                             Socket socket = serverSocket.accept();
                                                             serverSocket.close();
-                                                            messageQueue.offer(new NotificationRunnable(skyTCPCallback, new NotificationBean_UnmanagedCreated(fid, socket)));
+                                                            messageQueue.offer(new NotificationTask(scTCPCallback, new UnmanagedTCPSocketCreatedNotification(fid, socket)));
                                                         } catch (Exception ignored) {
                                                         }
                                                     }
@@ -141,7 +141,7 @@ public class TCPServer implements Closeable {
                 } catch (Exception ignored) {
                     ignored.printStackTrace();
                 } finally {
-                    messageQueue.offer(new NotificationRunnable(skyTCPCallback, new NotificationBean_ConnectionState(0, TCPSocket.ConnectState.CLOSED)));
+                    messageQueue.offer(new NotificationTask(scTCPCallback, new ConnectionStateNotification(0, TCPSocket.ConnectState.CLOSED)));
                 }
             }
         });
@@ -208,7 +208,7 @@ public class TCPServer implements Closeable {
                         public void run() {
                             try {
                                 Socket socket = serverSocket.accept();
-                                messageQueue.offer(new NotificationRunnable(skyTCPCallback, new NotificationBean_UnmanagedCreated(fid, socket)));
+                                messageQueue.offer(new NotificationTask(scTCPCallback, new UnmanagedTCPSocketCreatedNotification(fid, socket)));
                             } catch (Exception ignored) {
                             }
                         }

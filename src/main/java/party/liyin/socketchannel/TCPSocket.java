@@ -13,7 +13,7 @@ public class TCPSocket {
     /**
      * TCP Callback
      */
-    public interface SkyTCPCallback extends SkyBaseCallback {
+    public interface SCTCPCallback extends SCBaseCallback {
         /**
          * When Data Arrived
          *

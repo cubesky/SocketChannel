@@ -1,4 +1,4 @@
 package party.liyin.socketchannel;
 
-interface SkyBaseCallback {
+interface SCBaseCallback {
 }

@@ -1,9 +1,9 @@
 package party.liyin.socketchannel;
 
-class NotificationBean_ConnectionState extends NotificationBean {
+class ConnectionStateNotification extends Notification {
     private TCPSocket.ConnectState connectState;
 
-    NotificationBean_ConnectionState(long id, TCPSocket.ConnectState connectState) {
+    ConnectionStateNotification(long id, TCPSocket.ConnectState connectState) {
         this.id = id;
         this.connectState = connectState;
     }

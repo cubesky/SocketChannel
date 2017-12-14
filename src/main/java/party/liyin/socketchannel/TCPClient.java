@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 
 public class TCPClient implements Closeable {
     private MessageQueue messageQueue = new MessageQueue();
-    private TCPSocket.SkyTCPCallback skyTCPCallback;
+    private TCPSocket.SCTCPCallback scTCPCallback;
     private SocketChannel socketChannel;
     private InetSocketAddress address;
     private Selector selector;
@@ -26,11 +26,11 @@ public class TCPClient implements Closeable {
      * TCP NIO Client
      *
      * @param address        Address and Port for TCP Server
-     * @param skyTCPCallback TCP Client Callback
+     * @param scTCPCallback TCP Client Callback
      */
-    public TCPClient(InetSocketAddress address, TCPSocket.SkyTCPCallback skyTCPCallback) {
+    public TCPClient(InetSocketAddress address, TCPSocket.SCTCPCallback scTCPCallback) {
         this.address = address;
-        this.skyTCPCallback = skyTCPCallback;
+        this.scTCPCallback = scTCPCallback;
     }
 
     /**
@@ -47,7 +47,7 @@ public class TCPClient implements Closeable {
             socketChannel = null;
             throw connect;
         }
-        messageQueue.offer(new NotificationRunnable(skyTCPCallback, new NotificationBean_ConnectionState(0, TCPSocket.ConnectState.CONNECT)));
+        messageQueue.offer(new NotificationTask(scTCPCallback, new ConnectionStateNotification(0, TCPSocket.ConnectState.CONNECT)));
         socketChannel.configureBlocking(false);
         selector = Selector.open();
         socketChannel.register(selector, SelectionKey.OP_READ);
@@ -83,7 +83,7 @@ public class TCPClient implements Closeable {
                                 byte cmd = resultArray[0];
                                 System.arraycopy(resultArray, 1, resultData, 0, resultArray.length - 1);
                                 if (cmd == 0) {
-                                    messageQueue.offer(new NotificationRunnable(skyTCPCallback, new NotificationBean_DataArrived(0, resultData)));
+                                    messageQueue.offer(new NotificationTask(scTCPCallback, new TCPDataArrivedNotification(0, resultData)));
                                 } else if (cmd == 1) {
                                     final SocketChannel fsocketChannel = socketChannel;
                                     final String port = new String(resultData);
@@ -93,7 +93,7 @@ public class TCPClient implements Closeable {
                                             Socket socket = new Socket();
                                             try {
                                                 socket.connect(new InetSocketAddress(fsocketChannel.socket().getInetAddress().getHostAddress(), Integer.valueOf(port)));
-                                                messageQueue.offer(new NotificationRunnable(skyTCPCallback, new NotificationBean_UnmanagedCreated(0, socket)));
+                                                messageQueue.offer(new NotificationTask(scTCPCallback, new UnmanagedTCPSocketCreatedNotification(0, socket)));
                                             } catch (IOException e) {
                                                 e.printStackTrace();
                                             }
@@ -107,13 +107,13 @@ public class TCPClient implements Closeable {
                         }
                     }
                 } catch (Exception ignore) {
-                    messageQueue.offer(new NotificationRunnable(skyTCPCallback, new NotificationBean_ConnectionState(0, TCPSocket.ConnectState.DISCONNECT)));
+                    messageQueue.offer(new NotificationTask(scTCPCallback, new ConnectionStateNotification(0, TCPSocket.ConnectState.DISCONNECT)));
                 } finally {
                     try {
                         socketChannel.close();
                     } catch (IOException ignored) {
                     }
-                    messageQueue.offer(new NotificationRunnable(skyTCPCallback, new NotificationBean_ConnectionState(0, TCPSocket.ConnectState.CLOSED)));
+                    messageQueue.offer(new NotificationTask(scTCPCallback, new ConnectionStateNotification(0, TCPSocket.ConnectState.CLOSED)));
                 }
             }
         });

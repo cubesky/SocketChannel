@@ -1,11 +1,11 @@
 package party.liyin.socketchannel;
 
-public class NotificationBean_DataArrived_UDP extends NotificationBean {
+public class UDPDataArrivedNotification extends Notification {
     private String host;
     private int port;
     private byte[] obj;
 
-    public NotificationBean_DataArrived_UDP(String host, int port, byte[] obj) {
+    public UDPDataArrivedNotification(String host, int port, byte[] obj) {
         this.host = host;
         this.port = port;
         this.obj = obj;

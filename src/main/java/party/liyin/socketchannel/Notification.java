@@ -1,6 +1,6 @@
 package party.liyin.socketchannel;
 
-abstract class NotificationBean {
+abstract class Notification {
     long id;
 
     long getId() {

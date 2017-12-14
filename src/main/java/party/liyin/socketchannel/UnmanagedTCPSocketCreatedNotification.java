@@ -2,10 +2,10 @@ package party.liyin.socketchannel;
 
 import java.net.Socket;
 
-class NotificationBean_UnmanagedCreated extends NotificationBean {
+class UnmanagedTCPSocketCreatedNotification extends Notification {
     private Socket socket;
 
-    NotificationBean_UnmanagedCreated(long id, Socket socket) {
+    UnmanagedTCPSocketCreatedNotification(long id, Socket socket) {
         this.id = id;
         this.socket = socket;
     }

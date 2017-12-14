@@ -19,19 +19,19 @@ public class UDPSocket implements Closeable {
     private Selector selector;
     private int port;
     private boolean isStarted = false;
-    private SkyUDPCallback skyUDPCallback;
+    private SCUDPCallback scUDPCallback;
     private ExecutorService service = Executors.newFixedThreadPool(1);
 
     /**
      * Create an UDP Channel
      *
      * @param port           UDP Listen Port
-     * @param skyUDPCallback UDP Callback
+     * @param scUDPCallback UDP Callback
      * @throws IOException
      */
-    public UDPSocket(int port, SkyUDPCallback skyUDPCallback) throws IOException {
+    public UDPSocket(int port, SCUDPCallback scUDPCallback) throws IOException {
         this.port = port;
-        this.skyUDPCallback = skyUDPCallback;
+        this.scUDPCallback = scUDPCallback;
     }
 
     /**
@@ -63,7 +63,7 @@ public class UDPSocket implements Closeable {
                             try {
                                 InetSocketAddress address = (InetSocketAddress) datagramChannel.receive(buffer);
                                 byte[] resultArray = buffer.array();
-                                messageQueue.offer(new NotificationRunnable(skyUDPCallback, new NotificationBean_DataArrived_UDP(address.getHostString(), address.getPort(), resultArray)));
+                                messageQueue.offer(new NotificationTask(scUDPCallback, new UDPDataArrivedNotification(address.getHostString(), address.getPort(), resultArray)));
                             } catch (IOException ignored) {
                             }
                         }
@@ -121,7 +121,7 @@ public class UDPSocket implements Closeable {
     /**
      * UDP Callback
      */
-    public interface SkyUDPCallback extends SkyBaseCallback {
+    public interface SCUDPCallback extends SCBaseCallback {
         /**
          * When Data Arrived
          *
