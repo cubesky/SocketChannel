@@ -44,6 +44,13 @@ TCPServer tcpServer = new TCPServer(new InetSocketAddress("0.0.0.0", 20000), scT
 tcpServer.start();
 ```
 
+##### Fully Management Mode
+This will add a byte as command before your data, if you don't want to use `createUnmanagedSocket` feature, you can use this to disable this feature.
+If you do this, `createUnmanagedSocket` will immediately return without do anything. You need create `TCPClient` as Fully Management Mode too.
+```java
+TCPServer tcpServer = new TCPServer(new InetSocketAddress("0.0.0.0", 20000), scTCPCallback, true);
+```
+
 You can send data by using `sendMessage(long,byte[])`
 ```java
 tcpServer.sendMessage(15L, "Hello Client".getBytes()); //15L is client id
@@ -87,6 +94,13 @@ Client is more easy.
 ```java
 TCPClient tcpClient = new TCPClient(new InetSocketAddress("127.0.0.1", 20000), scTCPCallback); //127.0.0.1 is your server ip and 20000 is your server port
 tcpClient.start();
+```
+
+##### Fully Management Mode
+This will add a byte as command before your data, if you don't want to use `createUnmanagedSocket` feature, you can use this to disable this feature.
+If you do this, `createUnmanagedSocket` will immediately return without do anything. You need create `TCPSocket` as Fully Management Mode too.
+```java
+TCPClient tcpClient = new TCPClient(new InetSocketAddress("127.0.0.1", 20000), scTCPCallback, true);
 ```
 
 Send data to your server

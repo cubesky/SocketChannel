@@ -26,6 +26,7 @@ public class TCPServer implements Closeable {
     private InetSocketAddress address;
     private Selector selector;
     private ExecutorService service = Executors.newFixedThreadPool(1);
+    private boolean fullyManagement = false;
     private boolean isStarted = false;
 
     /**
@@ -36,10 +37,22 @@ public class TCPServer implements Closeable {
      * @throws IOException
      */
     public TCPServer(InetSocketAddress address, TCPSocket.SCTCPCallback scTCPCallback) throws IOException {
+        this(address, scTCPCallback, false);
+    }
+
+    /**
+     * TCP NIO Server
+     *
+     * @param address       Bind IP and Port
+     * @param scTCPCallback TCP Callback
+     * @throws IOException
+     */
+    public TCPServer(InetSocketAddress address, TCPSocket.SCTCPCallback scTCPCallback, boolean fullyManagement) throws IOException {
         serverSocketChannel = ServerSocketChannel.open();
         serverSocketChannel.configureBlocking(false);
         this.address = address;
         this.scTCPCallback = scTCPCallback;
+        this.fullyManagement = fullyManagement;
     }
 
     /**
@@ -97,42 +110,46 @@ public class TCPServer implements Closeable {
                                     continue;
                                 }
                                 byte[] resultArray = outputStream.toByteArray();
-                                byte[] resultData = new byte[resultArray.length - 1];
-                                byte cmd = resultArray[0];
-                                System.arraycopy(resultArray, 1, resultData, 0, resultArray.length - 1);
-                                if (cmd == 0) {
-                                    messageQueue.offer(new NotificationTask(scTCPCallback, new TCPDataArrivedNotification(id, resultData)));
-                                } else if (cmd == 1) {
-                                    final long fid = id;
-                                    new Thread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            try {
-                                                final ServerSocket serverSocket = new ServerSocket(0);
-                                                byte[] port = String.valueOf(serverSocket.getLocalPort()).getBytes();
-                                                ByteBuffer buffer = ByteBuffer.allocate(port.length + 1);
-                                                buffer.put(new byte[]{1});
-                                                buffer.put(port);
-                                                buffer.flip();
-                                                peerMap.inverse().get(fid).write(buffer);
-                                                new Thread(new Runnable() {
-                                                    @Override
-                                                    public void run() {
-                                                        try {
-                                                            Socket socket = serverSocket.accept();
-                                                            serverSocket.close();
-                                                            messageQueue.offer(new NotificationTask(scTCPCallback, new UnmanagedTCPSocketCreatedNotification(fid, socket)));
-                                                        } catch (Exception ignored) {
-                                                        }
-                                                    }
-                                                }).start();
-                                            } catch (IOException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                    }).start();
+                                if (fullyManagement) {
+                                    messageQueue.offer(new NotificationTask(scTCPCallback, new TCPDataArrivedNotification(id, resultArray)));
                                 } else {
-                                    System.err.println("Not Support");
+                                    byte[] resultData = new byte[resultArray.length - 1];
+                                    byte cmd = resultArray[0];
+                                    System.arraycopy(resultArray, 1, resultData, 0, resultArray.length - 1);
+                                    if (cmd == 0) {
+                                        messageQueue.offer(new NotificationTask(scTCPCallback, new TCPDataArrivedNotification(id, resultData)));
+                                    } else if (cmd == 1) {
+                                        final long fid = id;
+                                        new Thread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                try {
+                                                    final ServerSocket serverSocket = new ServerSocket(0);
+                                                    byte[] port = String.valueOf(serverSocket.getLocalPort()).getBytes();
+                                                    ByteBuffer buffer = ByteBuffer.allocate(port.length + 1);
+                                                    buffer.put(new byte[]{1});
+                                                    buffer.put(port);
+                                                    buffer.flip();
+                                                    peerMap.inverse().get(fid).write(buffer);
+                                                    new Thread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            try {
+                                                                Socket socket = serverSocket.accept();
+                                                                serverSocket.close();
+                                                                messageQueue.offer(new NotificationTask(scTCPCallback, new UnmanagedTCPSocketCreatedNotification(fid, socket)));
+                                                            } catch (Exception ignored) {
+                                                            }
+                                                        }
+                                                    }).start();
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                        }).start();
+                                    } else {
+                                        System.err.println("Not Support");
+                                    }
                                 }
                             }
                             selectionKeyIterator.remove();
@@ -191,6 +208,7 @@ public class TCPServer implements Closeable {
      * @param id
      */
     public void createUnmanagedSocket(long id) {
+        if (fullyManagement) return;
         final long fid = id;
         new Thread(new Runnable() {
             @Override
@@ -229,8 +247,12 @@ public class TCPServer implements Closeable {
      */
     public void sendMessage(long id, byte[] obj) throws IOException {
         final long fid = id;
-        final ByteBuffer buffer = ByteBuffer.allocate(obj.length + 1);
-        buffer.put(new byte[]{0});
+        int length = obj.length;
+        if (fullyManagement) {
+            length = length - 1;
+        }
+        final ByteBuffer buffer = ByteBuffer.allocate(length + 1);
+        if (!fullyManagement) buffer.put(new byte[]{0});
         buffer.put(obj);
         if (id == 0) {
             final byte[] boardcastarray = buffer.array();

@@ -20,6 +20,7 @@ public class TCPClient implements Closeable {
     private InetSocketAddress address;
     private Selector selector;
     private ExecutorService service = Executors.newFixedThreadPool(1);
+    private boolean fullyManagement = false;
     private boolean isStarted = false;
 
     /**
@@ -29,8 +30,19 @@ public class TCPClient implements Closeable {
      * @param scTCPCallback TCP Client Callback
      */
     public TCPClient(InetSocketAddress address, TCPSocket.SCTCPCallback scTCPCallback) {
+        this(address, scTCPCallback, false);
+    }
+
+    /**
+     * TCP NIO Client
+     *
+     * @param address       Address and Port for TCP Server
+     * @param scTCPCallback TCP Client Callback
+     */
+    public TCPClient(InetSocketAddress address, TCPSocket.SCTCPCallback scTCPCallback, boolean fullyManagement) {
         this.address = address;
         this.scTCPCallback = scTCPCallback;
+        this.fullyManagement = fullyManagement;
     }
 
     /**
@@ -79,29 +91,34 @@ public class TCPClient implements Closeable {
                                     throw new IOException("Disconnect");
                                 }
                                 byte[] resultArray = outputStream.toByteArray();
-                                byte[] resultData = new byte[resultArray.length - 1];
-                                byte cmd = resultArray[0];
-                                System.arraycopy(resultArray, 1, resultData, 0, resultArray.length - 1);
-                                if (cmd == 0) {
-                                    messageQueue.offer(new NotificationTask(scTCPCallback, new TCPDataArrivedNotification(0, resultData)));
-                                } else if (cmd == 1) {
-                                    final SocketChannel fsocketChannel = socketChannel;
-                                    final String port = new String(resultData);
-                                    new Thread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            Socket socket = new Socket();
-                                            try {
-                                                socket.connect(new InetSocketAddress(fsocketChannel.socket().getInetAddress().getHostAddress(), Integer.valueOf(port)));
-                                                messageQueue.offer(new NotificationTask(scTCPCallback, new UnmanagedTCPSocketCreatedNotification(0, socket)));
-                                            } catch (IOException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                    }).start();
+                                if (fullyManagement) {
+                                    messageQueue.offer(new NotificationTask(scTCPCallback, new TCPDataArrivedNotification(0, resultArray)));
                                 } else {
-                                    System.err.println("Not Support");
+                                    byte[] resultData = new byte[resultArray.length - 1];
+                                    byte cmd = resultArray[0];
+                                    System.arraycopy(resultArray, 1, resultData, 0, resultArray.length - 1);
+                                    if (cmd == 0) {
+                                        messageQueue.offer(new NotificationTask(scTCPCallback, new TCPDataArrivedNotification(0, resultData)));
+                                    } else if (cmd == 1) {
+                                        final SocketChannel fsocketChannel = socketChannel;
+                                        final String port = new String(resultData);
+                                        new Thread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Socket socket = new Socket();
+                                                try {
+                                                    socket.connect(new InetSocketAddress(fsocketChannel.socket().getInetAddress().getHostAddress(), Integer.valueOf(port)));
+                                                    messageQueue.offer(new NotificationTask(scTCPCallback, new UnmanagedTCPSocketCreatedNotification(0, socket)));
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                        }).start();
+                                    } else {
+                                        System.err.println("Not Support");
+                                    }
                                 }
+
                             }
                             selectionKeyIterator.remove();
                         }
@@ -139,6 +156,7 @@ public class TCPClient implements Closeable {
      * Request an Unmanaged Socket in IO Mode
      */
     public void createUnmanagedSocket() {
+        if (fullyManagement) return;
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -164,8 +182,12 @@ public class TCPClient implements Closeable {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                ByteBuffer buffer = ByteBuffer.allocate(fobj.length + 1);
-                buffer.put(new byte[]{0});
+                int length = fobj.length;
+                if (fullyManagement) {
+                    length = length - 1;
+                }
+                ByteBuffer buffer = ByteBuffer.allocate(length + 1);
+                if (!fullyManagement) buffer.put(new byte[]{0});
                 buffer.put(fobj);
                 buffer.flip();
                 try {
