@@ -38,6 +38,18 @@ public class TCPSocket {
          */
         void onUnmangedCreated(long id, Socket socket);
     }
+
+    /**
+     * TCP Auth Callback
+     */
+    public interface SCAuthCallback extends SCBaseCallback {
+        /**
+         * Auth Method
+         * @param socket Socket with remote information
+         * @return If the connection should accept
+         */
+        boolean onNewSocketAuth(Socket socket);
+    }
 }
 
 

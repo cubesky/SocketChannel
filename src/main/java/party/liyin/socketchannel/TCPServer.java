@@ -28,6 +28,7 @@ public class TCPServer implements Closeable {
     private ExecutorService service = Executors.newFixedThreadPool(1);
     private boolean fullyManagement = false;
     private boolean isStarted = false;
+    private TCPSocket.SCAuthCallback connAuthCallback = null;
 
     /**
      * TCP NIO Server
@@ -79,6 +80,13 @@ public class TCPServer implements Closeable {
                             SelectionKey key = selectionKeyIterator.next();
                             if (key.isAcceptable()) {
                                 SocketChannel socketChannel = serverSocketChannel.accept();
+                                if(connAuthCallback != null) {
+                                    if(!connAuthCallback.onNewSocketAuth(socketChannel.socket())) {
+                                        socketChannel.finishConnect();
+                                        socketChannel.close();
+                                        continue;
+                                    }
+                                }
                                 socketChannel.configureBlocking(false);
                                 socketChannel.register(selector, SelectionKey.OP_READ);
                                 long id = Utils.getNewUniqueId(peerMap);
@@ -176,6 +184,14 @@ public class TCPServer implements Closeable {
         String host1 = inverse.get(id1).socket().getInetAddress().getHostAddress();
         String host2 = inverse.get(id2).socket().getInetAddress().getHostAddress();
         return host1.equals(host2);
+    }
+
+    /**
+     * Set Auth Callback
+     * @param connAuthCallback instance of TCPSocket.SCAuthCallback
+     */
+    public void setConnAuthCallback(TCPSocket.SCAuthCallback connAuthCallback) {
+        this.connAuthCallback = connAuthCallback;
     }
 
     /**

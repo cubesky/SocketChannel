@@ -1,5 +1,5 @@
 group 'party.liyin'
-version '3.0'
+version '4.0'
 
 apply plugin: 'java'
 apply plugin: 'maven'

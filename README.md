@@ -81,6 +81,18 @@ or
 tcpServer.close();
 ```
 
+If you want to filter some connection during new connection accept. You can use `setConnAuthCallback`
+```java
+tcpServer.setConnAuthCallback(new TCPSocket.SCAuthCallback(){
+    boolean onNewSocketAuth(Socket socket) {
+      //Your code
+      return true; //true to Accept, false to Deny
+    }
+})
+```
+
+> Becareful: This callback is sync, so it will block the main loop, use it carefully or you will get a poor performance.
+
 you can also use try..resource statement
 ```java
 try(TCPServer tcpServer = new TCPServer(new InetSocketAddress("0.0.0.0", 20000), scTCPCallback)){ //20000 is your TCPServer Port
