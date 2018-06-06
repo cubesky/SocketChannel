@@ -3,7 +3,7 @@ package party.liyin.socketchannel;
 import java.net.Socket;
 
 public class DefaultSCCallback {
-    public class DefaultSCTCPCallback implements TCPSocket.SCTCPCallback {
+    public static class DefaultSCTCPCallback implements TCPSocket.SCTCPCallback {
         @Override
         public void onDataArrived(long id, byte[] obj) {
 
@@ -20,7 +20,7 @@ public class DefaultSCCallback {
         }
     }
 
-    public class DefaultSCUDPCallback implements UDPSocket.SCUDPCallback {
+    public static class DefaultSCUDPCallback implements UDPSocket.SCUDPCallback {
         @Override
         public void onDataArrived(String ip, int port, byte[] obj) {
 
