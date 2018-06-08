@@ -24,6 +24,21 @@ public class DefaultServer {
 
     }
 
+    public static class DefaultTCPClient extends TCPClient {
+
+        public DefaultTCPClient(InetSocketAddress address, TCPSocket.SCTCPCallback scTCPCallback) {
+            super(address, scTCPCallback);
+        }
+
+        public DefaultTCPClient(InetSocketAddress address, TCPSocket.SCTCPCallback scTCPCallback, boolean fullyManagement) {
+            super(address, scTCPCallback, fullyManagement);
+        }
+
+        public void sendMessage(String obj) {
+            super.sendMessage(obj.getBytes());
+        }
+    }
+
     public static class DefaultUDPSocket extends UDPSocket {
 
         /**
