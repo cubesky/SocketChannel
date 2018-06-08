@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>party.liyin</groupId>
   <artifactId>socketchannel</artifactId>
-  <version>4.0</version>
+  <version>5.1</version>
   <dependencies>
     <dependency>
       <groupId>com.google.guava</groupId>
