@@ -3,13 +3,13 @@ package party.liyin.socketchannel;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-public class MessageQueue {
+public class MessageLoop {
     private BlockingQueue<Runnable> queue = new LinkedBlockingQueue<>();
 
     /**
      * MessageQueue to Notify Other Thread in Async
      */
-    public MessageQueue() {
+    public MessageLoop() {
         Thread messageThread = new Thread(new Runnable() {
             @Override
             public void run() {

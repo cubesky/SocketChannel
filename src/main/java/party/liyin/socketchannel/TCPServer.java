@@ -2,6 +2,8 @@ package party.liyin.socketchannel;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+import party.liyin.socketchannel.callback.TCPSocket;
+import party.liyin.socketchannel.notification.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
@@ -17,23 +19,26 @@ import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class TCPServer implements Closeable {
-    private MessageQueue messageQueue = new MessageQueue();
+    private MessageLoop messageLoop = new MessageLoop();
     private HashBiMap<SocketChannel, Long> peerMap = HashBiMap.create();
     private TCPSocket.SCTCPCallback scTCPCallback;
     private ServerSocketChannel serverSocketChannel;
     private InetSocketAddress address;
     private Selector selector;
     private ExecutorService service = Executors.newFixedThreadPool(1);
-    private boolean fullyManagement = false;
+    private boolean manuallyMode = false;
     private boolean isStarted = false;
     private TCPSocket.SCAuthCallback connAuthCallback = null;
+    private ScheduledExecutorService heartbeatExecutor = Executors.newScheduledThreadPool(1);
 
     /**
      * TCP NIO Server
      *
-     * @param address        Bind IP and Port
+     * @param address       Bind IP and Port
      * @param scTCPCallback TCP Callback
      * @throws IOException
      */
@@ -48,12 +53,12 @@ public class TCPServer implements Closeable {
      * @param scTCPCallback TCP Callback
      * @throws IOException
      */
-    public TCPServer(InetSocketAddress address, TCPSocket.SCTCPCallback scTCPCallback, boolean fullyManagement) throws IOException {
+    public TCPServer(InetSocketAddress address, TCPSocket.SCTCPCallback scTCPCallback, boolean manuallyMode) throws IOException {
         serverSocketChannel = ServerSocketChannel.open();
         serverSocketChannel.configureBlocking(false);
         this.address = address;
         this.scTCPCallback = scTCPCallback;
-        this.fullyManagement = fullyManagement;
+        this.manuallyMode = manuallyMode;
     }
 
     /**
@@ -80,8 +85,8 @@ public class TCPServer implements Closeable {
                             SelectionKey key = selectionKeyIterator.next();
                             if (key.isAcceptable()) {
                                 SocketChannel socketChannel = serverSocketChannel.accept();
-                                if(connAuthCallback != null) {
-                                    if(!connAuthCallback.onNewSocketAuth(socketChannel.socket())) {
+                                if (connAuthCallback != null) {
+                                    if (!connAuthCallback.onNewSocketAuth(socketChannel.socket())) {
                                         socketChannel.finishConnect();
                                         socketChannel.close();
                                         continue;
@@ -91,7 +96,7 @@ public class TCPServer implements Closeable {
                                 socketChannel.register(selector, SelectionKey.OP_READ);
                                 long id = Utils.getNewUniqueId(peerMap);
                                 peerMap.put(socketChannel, id);
-                                messageQueue.offer(new NotificationTask(scTCPCallback, new ConnectionStateNotification(id, TCPSocket.ConnectState.CONNECT)));
+                                messageLoop.offer(new NotificationTask(scTCPCallback, new OnConnectionStateChanged(id, TCPSocket.ConnectState.CONNECT)));
                             } else if (key.isReadable()) {
                                 SocketChannel socketChannel = (SocketChannel) key.channel();
                                 Long id = peerMap.get(socketChannel);
@@ -100,7 +105,7 @@ public class TCPServer implements Closeable {
                                     selectionKeyIterator.remove();
                                     continue;
                                 }
-                                ByteBuffer buffer = ByteBuffer.allocate(1024);
+                                ByteBuffer buffer = ByteBuffer.allocate(2048);
                                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                                 try {
                                     int length;
@@ -113,20 +118,20 @@ public class TCPServer implements Closeable {
                                 } catch (IOException e) {
                                     key.cancel();
                                     peerMap.remove(socketChannel);
-                                    messageQueue.offer(new NotificationTask(scTCPCallback, new ConnectionStateNotification(id, TCPSocket.ConnectState.DISCONNECT)));
+                                    messageLoop.offer(new NotificationTask(scTCPCallback, new OnConnectionStateChanged(id, TCPSocket.ConnectState.DISCONNECT)));
                                     selectionKeyIterator.remove();
                                     continue;
                                 }
                                 byte[] resultArray = outputStream.toByteArray();
-                                if (fullyManagement) {
-                                    messageQueue.offer(new NotificationTask(scTCPCallback, new TCPDataArrivedNotification(id, resultArray)));
+                                if (manuallyMode) {
+                                    messageLoop.offer(new NotificationTask(scTCPCallback, new OnTCPDataArrived(id, resultArray)));
                                 } else {
                                     byte[] resultData = new byte[resultArray.length - 1];
                                     byte cmd = resultArray[0];
                                     System.arraycopy(resultArray, 1, resultData, 0, resultArray.length - 1);
-                                    if (cmd == 0) {
-                                        messageQueue.offer(new NotificationTask(scTCPCallback, new TCPDataArrivedNotification(id, resultData)));
-                                    } else if (cmd == 1) {
+                                    if (cmd == 0) { // Data
+                                        messageLoop.offer(new NotificationTask(scTCPCallback, new OnTCPDataArrived(id, resultData)));
+                                    } else if (cmd == 1) { // UnmanagedSocket
                                         final long fid = id;
                                         new Thread(new Runnable() {
                                             @Override
@@ -145,7 +150,7 @@ public class TCPServer implements Closeable {
                                                             try {
                                                                 Socket socket = serverSocket.accept();
                                                                 serverSocket.close();
-                                                                messageQueue.offer(new NotificationTask(scTCPCallback, new UnmanagedTCPSocketCreatedNotification(fid, socket)));
+                                                                messageLoop.offer(new NotificationTask(scTCPCallback, new OnUnmanagedTCPSocketCreated(fid, socket)));
                                                             } catch (Exception ignored) {
                                                             }
                                                         }
@@ -155,6 +160,8 @@ public class TCPServer implements Closeable {
                                                 }
                                             }
                                         }).start();
+                                    } else if (cmd == 2) { //HeartBeat
+                                        messageLoop.offer(new NotificationTask(scTCPCallback, new OnHeartbeat(id)));
                                     } else {
                                         System.err.println("Not Support");
                                     }
@@ -163,13 +170,25 @@ public class TCPServer implements Closeable {
                             selectionKeyIterator.remove();
                         }
                     }
-                } catch (Exception ignored) {
-                    ignored.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 } finally {
-                    messageQueue.offer(new NotificationTask(scTCPCallback, new ConnectionStateNotification(0, TCPSocket.ConnectState.CLOSED)));
+                    messageLoop.offer(new NotificationTask(scTCPCallback, new OnConnectionStateChanged(0, TCPSocket.ConnectState.CLOSED)));
                 }
             }
         });
+        if (!manuallyMode) {
+            heartbeatExecutor.scheduleAtFixedRate(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        System.out.println("Heartbeat Sending ...");
+                        sendHeartbeat();
+                    } catch (Exception ignored) {
+                    }
+                }
+            }, 1, 2, TimeUnit.MINUTES);
+        }
     }
 
     /**
@@ -188,6 +207,7 @@ public class TCPServer implements Closeable {
 
     /**
      * Set Auth Callback
+     *
      * @param connAuthCallback instance of TCPSocket.SCAuthCallback
      */
     public void setConnAuthCallback(TCPSocket.SCAuthCallback connAuthCallback) {
@@ -198,6 +218,13 @@ public class TCPServer implements Closeable {
      * Stop all
      */
     public void stop() {
+        try {
+            if (!manuallyMode) {
+                heartbeatExecutor.shutdownNow();
+                heartbeatExecutor = Executors.newScheduledThreadPool(1);
+            }
+        } catch (Exception ignore) {
+        }
         try {
             selector.close();
         } catch (IOException ignored) {
@@ -224,7 +251,7 @@ public class TCPServer implements Closeable {
      * @param id
      */
     public void createUnmanagedSocket(long id) {
-        if (fullyManagement) return;
+        if (manuallyMode) return;
         final long fid = id;
         new Thread(new Runnable() {
             @Override
@@ -242,7 +269,7 @@ public class TCPServer implements Closeable {
                         public void run() {
                             try {
                                 Socket socket = serverSocket.accept();
-                                messageQueue.offer(new NotificationTask(scTCPCallback, new UnmanagedTCPSocketCreatedNotification(fid, socket)));
+                                messageLoop.offer(new NotificationTask(scTCPCallback, new OnUnmanagedTCPSocketCreated(fid, socket)));
                             } catch (Exception ignored) {
                             }
                         }
@@ -264,11 +291,11 @@ public class TCPServer implements Closeable {
     public void sendMessage(long id, byte[] obj) throws IOException {
         final long fid = id;
         int length = obj.length;
-        if (fullyManagement) {
+        if (manuallyMode) {
             length = length - 1;
         }
         final ByteBuffer buffer = ByteBuffer.allocate(length + 1);
-        if (!fullyManagement) buffer.put(new byte[]{0});
+        if (!manuallyMode) buffer.put(new byte[]{0});
         buffer.put(obj);
         if (id == 0) {
             final byte[] boardcastarray = buffer.array();
@@ -291,6 +318,30 @@ public class TCPServer implements Closeable {
                 public void run() {
                     try {
                         peerMap.inverse().get(fid).write(buffer);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
+    }
+
+    /**
+     * Send Data Through a managed Channel
+     */
+    private void sendHeartbeat() {
+        if (manuallyMode) {
+            return;
+        }
+        final ByteBuffer buffer = ByteBuffer.allocate(1);
+        buffer.put(new byte[]{2});
+        final byte[] boardcastarray = buffer.array();
+        for (final SocketChannel socketChannel : peerMap.inverse().values()) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        socketChannel.write(ByteBuffer.wrap(boardcastarray));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

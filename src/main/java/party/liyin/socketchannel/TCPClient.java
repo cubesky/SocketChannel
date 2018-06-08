@@ -1,5 +1,8 @@
 package party.liyin.socketchannel;
 
+import party.liyin.socketchannel.callback.TCPSocket;
+import party.liyin.socketchannel.notification.*;
+
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
 import java.io.IOException;
@@ -14,13 +17,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class TCPClient implements Closeable {
-    private MessageQueue messageQueue = new MessageQueue();
+    private MessageLoop messageLoop = new MessageLoop();
     private TCPSocket.SCTCPCallback scTCPCallback;
     private SocketChannel socketChannel;
     private InetSocketAddress address;
     private Selector selector;
     private ExecutorService service = Executors.newFixedThreadPool(1);
-    private boolean fullyManagement = false;
+    private boolean manuallyMode = false;
     private boolean isStarted = false;
 
     /**
@@ -39,10 +42,10 @@ public class TCPClient implements Closeable {
      * @param address       Address and Port for TCP Server
      * @param scTCPCallback TCP Client Callback
      */
-    public TCPClient(InetSocketAddress address, TCPSocket.SCTCPCallback scTCPCallback, boolean fullyManagement) {
+    public TCPClient(InetSocketAddress address, TCPSocket.SCTCPCallback scTCPCallback, boolean manuallyMode) {
         this.address = address;
         this.scTCPCallback = scTCPCallback;
-        this.fullyManagement = fullyManagement;
+        this.manuallyMode = manuallyMode;
     }
 
     /**
@@ -59,7 +62,7 @@ public class TCPClient implements Closeable {
             socketChannel = null;
             throw connect;
         }
-        messageQueue.offer(new NotificationTask(scTCPCallback, new ConnectionStateNotification(0, TCPSocket.ConnectState.CONNECT)));
+        messageLoop.offer(new NotificationTask(scTCPCallback, new OnConnectionStateChanged(0, TCPSocket.ConnectState.CONNECT)));
         socketChannel.configureBlocking(false);
         selector = Selector.open();
         socketChannel.register(selector, SelectionKey.OP_READ);
@@ -91,14 +94,14 @@ public class TCPClient implements Closeable {
                                     throw new IOException("Disconnect");
                                 }
                                 byte[] resultArray = outputStream.toByteArray();
-                                if (fullyManagement) {
-                                    messageQueue.offer(new NotificationTask(scTCPCallback, new TCPDataArrivedNotification(0, resultArray)));
+                                if (manuallyMode) {
+                                    messageLoop.offer(new NotificationTask(scTCPCallback, new OnTCPDataArrived(0, resultArray)));
                                 } else {
                                     byte[] resultData = new byte[resultArray.length - 1];
                                     byte cmd = resultArray[0];
                                     System.arraycopy(resultArray, 1, resultData, 0, resultArray.length - 1);
                                     if (cmd == 0) {
-                                        messageQueue.offer(new NotificationTask(scTCPCallback, new TCPDataArrivedNotification(0, resultData)));
+                                        messageLoop.offer(new NotificationTask(scTCPCallback, new OnTCPDataArrived(0, resultData)));
                                     } else if (cmd == 1) {
                                         final SocketChannel fsocketChannel = socketChannel;
                                         final String port = new String(resultData);
@@ -108,12 +111,15 @@ public class TCPClient implements Closeable {
                                                 Socket socket = new Socket();
                                                 try {
                                                     socket.connect(new InetSocketAddress(fsocketChannel.socket().getInetAddress().getHostAddress(), Integer.valueOf(port)));
-                                                    messageQueue.offer(new NotificationTask(scTCPCallback, new UnmanagedTCPSocketCreatedNotification(0, socket)));
+                                                    messageLoop.offer(new NotificationTask(scTCPCallback, new OnUnmanagedTCPSocketCreated(0, socket)));
                                                 } catch (IOException e) {
                                                     e.printStackTrace();
                                                 }
                                             }
                                         }).start();
+                                    } else if (cmd == 2) {
+                                        sendHeartbeat();
+                                        messageLoop.offer(new NotificationTask(scTCPCallback, new OnHeartbeat(0)));
                                     } else {
                                         System.err.println("Not Support");
                                     }
@@ -124,13 +130,13 @@ public class TCPClient implements Closeable {
                         }
                     }
                 } catch (Exception ignore) {
-                    messageQueue.offer(new NotificationTask(scTCPCallback, new ConnectionStateNotification(0, TCPSocket.ConnectState.DISCONNECT)));
+                    messageLoop.offer(new NotificationTask(scTCPCallback, new OnConnectionStateChanged(0, TCPSocket.ConnectState.DISCONNECT)));
                 } finally {
                     try {
                         socketChannel.close();
                     } catch (IOException ignored) {
                     }
-                    messageQueue.offer(new NotificationTask(scTCPCallback, new ConnectionStateNotification(0, TCPSocket.ConnectState.CLOSED)));
+                    messageLoop.offer(new NotificationTask(scTCPCallback, new OnConnectionStateChanged(0, TCPSocket.ConnectState.CLOSED)));
                 }
             }
         });
@@ -139,7 +145,7 @@ public class TCPClient implements Closeable {
     /**
      * Close All
      *
-     * @throws IOException
+     * @throws IOException Close Error
      */
     public void stop() throws IOException {
         try {
@@ -156,7 +162,7 @@ public class TCPClient implements Closeable {
      * Request an Unmanaged Socket in IO Mode
      */
     public void createUnmanagedSocket() {
-        if (fullyManagement) return;
+        if (manuallyMode) return;
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -183,12 +189,34 @@ public class TCPClient implements Closeable {
             @Override
             public void run() {
                 int length = fobj.length;
-                if (fullyManagement) {
+                if (manuallyMode) {
                     length = length - 1;
                 }
                 ByteBuffer buffer = ByteBuffer.allocate(length + 1);
-                if (!fullyManagement) buffer.put(new byte[]{0});
+                if (!manuallyMode) buffer.put(new byte[]{0});
                 buffer.put(fobj);
+                buffer.flip();
+                try {
+                    socketChannel.write(buffer);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    /**
+     * Send Heartbeat
+     */
+    private void sendHeartbeat() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (manuallyMode) {
+                    return;
+                }
+                ByteBuffer buffer = ByteBuffer.allocate(1);
+                buffer.put(new byte[]{2});
                 buffer.flip();
                 try {
                     socketChannel.write(buffer);

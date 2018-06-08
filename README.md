@@ -33,6 +33,11 @@ TCPSocket.SCTCPCallback scTCPCallback = new TCPSocket.SCTCPCallback(){
         //When this is a Client Callback, id always 0.
         //socket is your raw Socket instance
     }
+    void onHeartbeat(long id) {
+        //Calling when heartbeat arrived.
+        //When this is a Server Callback, id is a connection identifier.
+        //When this is a Client Callback, id always 0.
+    }
 }
 ```
 
@@ -45,8 +50,8 @@ tcpServer.start();
 ```
 
 ##### Fully Management Mode
-This will add a byte as command before your data, if you don't want to use `createUnmanagedSocket` feature, you can use this to disable this feature.
-If you do this, `createUnmanagedSocket` will immediately return without do anything. You need create `TCPClient` as Fully Management Mode too.
+This library will add a byte as command code before your data, if you don't want to use `createUnmanagedSocket` and Auto Heartbeat feature, you can use Manually Mode to disable this feature.
+If you do this, `createUnmanagedSocket` will immediately return without do anything. You need create `TCPClient` as Manually Mode too.
 ```java
 TCPServer tcpServer = new TCPServer(new InetSocketAddress("0.0.0.0", 20000), scTCPCallback, true);
 ```
@@ -109,8 +114,8 @@ tcpClient.start();
 ```
 
 ##### Fully Management Mode
-This will add a byte as command before your data, if you don't want to use `createUnmanagedSocket` feature, you can use this to disable this feature.
-If you do this, `createUnmanagedSocket` will immediately return without do anything. You need create `TCPSocket` as Fully Management Mode too.
+This library will add a byte as command code before your data, if you don't want to use `createUnmanagedSocket` and Auto Heartbeat feature, you can use this to disable this feature.
+If you do this, `createUnmanagedSocket` will immediately return without do anything. You need create `TCPSocket` as Manually Mode too.
 ```java
 TCPClient tcpClient = new TCPClient(new InetSocketAddress("127.0.0.1", 20000), scTCPCallback, true);
 ```
@@ -157,32 +162,46 @@ SCUDPCallback scUDPCallback = new SCUDPCallback() {
     //Calling when data arrived
   }
 }
-UDPSocket udpSocket = new UDPSocket(20000, scUDPCallback); //UDP Server will listen on port 20000
-udpSocket.start();
+UDPServer udpServer = new UDPServer(20000, scUDPCallback); //UDP Server will listen on port 20000
+udpServer.start();
 ```
 
 Send your data by calling `sendMessage(string, int, byte[])`
 ```java
-udpSocket.sendMessage("127.0.0.1", 20000, "Hello Peer".getBytes());
+udpServer.sendMessage("127.0.0.1", 20000, "Hello Peer".getBytes());
 ```
 
 Close it
 ```java
-udpSocket.stop();
+udpServer.stop();
 ```
 
 or
 
 ```java
-udpSocket.close();
+udpServer.close();
 ```
 
 You can also use try...resource statement
 ```java
-try (UDPSocket udpSocket = new UDPSocket(20000, scUDPCallback)) {
-    udpSocket.start();
+try (UDPServer udpServer = new UDPServer(20000, scUDPCallback)) {
+    udpServer.start();
 } //UDPSocket will automatic close
 ```
+
+## Shortcut
+### Server and Client
+`StringTCPClient` `StringTCPServer` `StringUDPServer` is comming after `SocketChannel 7.0`.   
+They will automatically wrap byte array to String UTF-8.  
+
+### Callback
+`DefaultTCPCallback` and `DefaultUDPCallback` is an empty `SCTCPCallback` and `SCUDPCallback` implementation. You can extends and override these to decrease your code.  
+`EchoTCPCallback` and `EchoUDPCallback` will offer an echo server handler automatically.  
+`StringTCPCallback` and `StringUDPCallback` will automatically transform byte array to String UTF-8. 
+
+## Heartbeat
+If you use fully management mode, SocketChannel library will automatically send and reply heartbeat packet every 2 minutes using command code 2.  
+In Manually Mode, this feature will be disabled.
 
 ## Dependency
 

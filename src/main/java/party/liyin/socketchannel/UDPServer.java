@@ -1,5 +1,9 @@
 package party.liyin.socketchannel;
 
+import party.liyin.socketchannel.callback.UDPSocket;
+import party.liyin.socketchannel.notification.NotificationTask;
+import party.liyin.socketchannel.notification.OnUDPDataArrived;
+
 import java.io.Closeable;
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -11,15 +15,15 @@ import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class UDPSocket implements Closeable {
+public class UDPServer implements Closeable {
 
 
-    private MessageQueue messageQueue = new MessageQueue();
+    private MessageLoop messageLoop = new MessageLoop();
     private DatagramChannel datagramChannel;
     private Selector selector;
     private int port;
     private boolean isStarted = false;
-    private SCUDPCallback scUDPCallback;
+    private UDPSocket.SCUDPCallback scUDPCallback;
     private ExecutorService service = Executors.newFixedThreadPool(1);
 
     /**
@@ -29,7 +33,7 @@ public class UDPSocket implements Closeable {
      * @param scUDPCallback UDP Callback
      * @throws IOException
      */
-    public UDPSocket(int port, SCUDPCallback scUDPCallback) throws IOException {
+    public UDPServer(int port, UDPSocket.SCUDPCallback scUDPCallback) throws IOException {
         this.port = port;
         this.scUDPCallback = scUDPCallback;
     }
@@ -57,13 +61,12 @@ public class UDPSocket implements Closeable {
                         Iterator<SelectionKey> selectionKeyIterator = selector.selectedKeys().iterator();
                         while (selectionKeyIterator.hasNext()) {
                             SelectionKey key = selectionKeyIterator.next();
-                            System.out.println("Recieve");
                             DatagramChannel datagramChannel = (DatagramChannel) key.channel();
                             ByteBuffer buffer = ByteBuffer.allocate(2048);
                             try {
                                 InetSocketAddress address = (InetSocketAddress) datagramChannel.receive(buffer);
                                 byte[] resultArray = buffer.array();
-                                messageQueue.offer(new NotificationTask(scUDPCallback, new UDPDataArrivedNotification(address.getHostString(), address.getPort(), resultArray)));
+                                messageLoop.offer(new NotificationTask(scUDPCallback, new OnUDPDataArrived(address.getHostString(), address.getPort(), resultArray)));
                             } catch (IOException ignored) {
                             }
                         }
@@ -118,17 +121,5 @@ public class UDPSocket implements Closeable {
         stop();
     }
 
-    /**
-     * UDP Callback
-     */
-    public interface SCUDPCallback extends SCBaseCallback {
-        /**
-         * When Data Arrived
-         *
-         * @param ip   Host
-         * @param port Port
-         * @param obj  Data Byte Array
-         */
-        void onDataArrived(String ip, int port, byte[] obj);
-    }
+
 }

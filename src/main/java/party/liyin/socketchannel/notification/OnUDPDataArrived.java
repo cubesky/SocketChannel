@@ -1,11 +1,11 @@
-package party.liyin.socketchannel;
+package party.liyin.socketchannel.notification;
 
-public class UDPDataArrivedNotification extends Notification {
+public class OnUDPDataArrived extends BaseNotification {
     private String host;
     private int port;
     private byte[] obj;
 
-    public UDPDataArrivedNotification(String host, int port, byte[] obj) {
+    public OnUDPDataArrived(String host, int port, byte[] obj) {
         this.host = host;
         this.port = port;
         this.obj = obj;

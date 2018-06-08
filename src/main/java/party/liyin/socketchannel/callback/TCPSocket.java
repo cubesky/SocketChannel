@@ -1,8 +1,8 @@
-package party.liyin.socketchannel;
+package party.liyin.socketchannel.callback;
 
 import java.net.Socket;
 
-public class TCPSocket {
+public final class TCPSocket {
     /**
      * TCP Connection State
      */
@@ -37,6 +37,13 @@ public class TCPSocket {
          * @param socket Connected Raw Socket
          */
         void onUnmangedCreated(long id, Socket socket);
+
+        /**
+         * When Heartbeat Arrived
+         *
+         * @param id ID of Client, if this is a client, id always 0
+         */
+        void onHeartbeat(long id);
     }
 
     /**
@@ -46,7 +53,7 @@ public class TCPSocket {
         /**
          * Auth Method
          * @param socket Socket with remote information
-         * @return If the connection should accept
+         * @return If the connection should be accept
          */
         boolean onNewSocketAuth(Socket socket);
     }
