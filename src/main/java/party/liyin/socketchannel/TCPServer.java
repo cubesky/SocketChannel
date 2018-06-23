@@ -133,24 +133,30 @@ public class TCPServer implements Closeable {
                                         messageLoop.offer(new NotificationTask(scTCPCallback, new OnTCPDataArrived(id, resultData)));
                                     } else if (cmd == 1) { // UnmanagedSocket
                                         final long fid = id;
+                                        final String tag = new String(resultData, "UTF-8");
                                         new Thread(new Runnable() {
                                             @Override
                                             public void run() {
                                                 try {
-                                                    final ServerSocket serverSocket = new ServerSocket(0);
+                                                    final ServerSocketChannel unmanagedServerSocketChannel = ServerSocketChannel.open();
+                                                    final ServerSocket serverSocket = unmanagedServerSocketChannel.socket();
+                                                    serverSocket.bind(new InetSocketAddress("0.0.0.0", 0));
+//                                                    final ServerSocket serverSocket = new ServerSocket(0);
                                                     byte[] port = String.valueOf(serverSocket.getLocalPort()).getBytes();
-                                                    ByteBuffer buffer = ByteBuffer.allocate(port.length + 1);
+                                                    ByteBuffer buffer = ByteBuffer.allocate(1 + port.length + 1 + tag.getBytes().length);
                                                     buffer.put(new byte[]{1});
                                                     buffer.put(port);
+                                                    buffer.put("|".getBytes());
+                                                    buffer.put(tag.getBytes());
                                                     buffer.flip();
                                                     peerMap.inverse().get(fid).write(buffer);
                                                     new Thread(new Runnable() {
                                                         @Override
                                                         public void run() {
                                                             try {
-                                                                Socket socket = serverSocket.accept();
+                                                                Socket socket = unmanagedServerSocketChannel.accept().socket();
                                                                 serverSocket.close();
-                                                                messageLoop.offer(new NotificationTask(scTCPCallback, new OnUnmanagedTCPSocketCreated(fid, socket)));
+                                                                messageLoop.offer(new NotificationTask(scTCPCallback, new OnUnmanagedTCPSocketCreated(fid, tag, socket)));
                                                             } catch (Exception ignored) {
                                                             }
                                                         }
@@ -182,7 +188,6 @@ public class TCPServer implements Closeable {
                 @Override
                 public void run() {
                     try {
-                        System.out.println("Heartbeat Sending ...");
                         sendHeartbeat();
                     } catch (Exception ignored) {
                     }
@@ -246,22 +251,28 @@ public class TCPServer implements Closeable {
     }
 
     /**
-     * Create a Managed Socket
+     * Create an Unmanaged Socket
      *
-     * @param id
+     * @param id id for client
+     * @param tag tag for socket
      */
-    public void createUnmanagedSocket(long id) {
+    public void createUnmanagedSocket(long id, String tag) {
         if (manuallyMode) return;
+        final byte[] finalTag = (tag == null) ? "".getBytes() : tag.getBytes();
         final long fid = id;
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    final ServerSocket serverSocket = new ServerSocket(0);
+                    final ServerSocketChannel unmanagedServerSocketChannel = ServerSocketChannel.open();
+                    final ServerSocket serverSocket = unmanagedServerSocketChannel.socket();
+                    serverSocket.bind(new InetSocketAddress("0.0.0.0", 0));
                     byte[] port = String.valueOf(serverSocket.getLocalPort()).getBytes();
-                    ByteBuffer buffer = ByteBuffer.allocate(port.length + 1);
+                    ByteBuffer buffer = ByteBuffer.allocate(1 + port.length + 1 + finalTag.length);
                     buffer.put(new byte[]{1});
                     buffer.put(port);
+                    buffer.put("|".getBytes());
+                    buffer.put(finalTag);
                     buffer.flip();
                     peerMap.inverse().get(fid).write(buffer);
                     new Thread(new Runnable() {
@@ -269,7 +280,7 @@ public class TCPServer implements Closeable {
                         public void run() {
                             try {
                                 Socket socket = serverSocket.accept();
-                                messageLoop.offer(new NotificationTask(scTCPCallback, new OnUnmanagedTCPSocketCreated(fid, socket)));
+                                messageLoop.offer(new NotificationTask(scTCPCallback, new OnUnmanagedTCPSocketCreated(fid, new String(finalTag, "UTF-8"), socket)));
                             } catch (Exception ignored) {
                             }
                         }
@@ -279,6 +290,15 @@ public class TCPServer implements Closeable {
                 }
             }
         }).start();
+    }
+
+    /**
+     * Create an Unmanaged Socket with no tag
+     *
+     * @param id for client
+     */
+    public void createUnmanagedSocket(long id) {
+        createUnmanagedSocket(id, "");
     }
 
     /**
@@ -358,6 +378,15 @@ public class TCPServer implements Closeable {
      */
     public void sendBroadcast(byte[] obj) throws IOException {
         sendMessage(0, obj);
+    }
+
+    /**
+     * Return if this instance is in manually mode
+     *
+     * @return
+     */
+    public boolean isManuallyMode() {
+        return manuallyMode;
     }
 
     /**

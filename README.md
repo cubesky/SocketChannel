@@ -27,10 +27,11 @@ TCPSocket.SCTCPCallback scTCPCallback = new TCPSocket.SCTCPCallback(){
         //When this is a Client Callback, id always 0.
         //connectState is an Enum.
     }
-    void onUnmangedCreated(long id, Socket socket){
+    void onUnmangedCreated(long id, String tag, Socket socket){
         //Calling when an unmanaged socket is created.
         //When this is a Server Callback, id is a connection identifier.
         //When this is a Client Callback, id always 0.
+        //tag is the tag when create this socket
         //socket is your raw Socket instance
     }
     void onHeartbeat(long id) {
@@ -71,9 +72,10 @@ If you want to know if two id is the same host, you can simplify call `isSameHos
 tcpServer.isSameHost(15L, 20L); //15L and 20L is two client id, return a boolean
 ```
 
-If you want to create a raw Socket, you can use `createUnmanagedSocket(long)`
+If you want to create a raw Socket, you can use `createUnmanagedSocket(long)` or `createUnmanagedSocket(long, String)`
 ```java
-tcpServer.createUnmanagedSocket(15L); //Tell id 15 client to connect a new Socket
+tcpServer.createUnmanagedSocket(15L); //Tell id 15 client to connect a new Socket without tag
+tcpServer.createUnmanagedSocket(15L, "Tag"); //Tell id 15 client to connect a new Socket with tag
 ```
 
 And you can stop is by calling
@@ -125,9 +127,10 @@ Send data to your server
 tcpClient.sendMessage("Hello Server".getBytes());
 ```
 
-If you want to create a raw Socket, you can use `createUnmanagedSocket()`
+If you want to create a raw Socket, you can use `createUnmanagedSocket()` or `createUnmanagedSocket(String)`
 ```java
-tcpClient.createUnmanagedSocket(); //Tell server to create a new raw Socket
+tcpClient.createUnmanagedSocket(); //Tell server to create a new raw Socket without tag
+tcpClient.createUnmanagedSocket("Tag"); //Tell server to create a new raw Socket with tag
 ```
 
 And you can stop is by calling
@@ -193,11 +196,22 @@ try (UDPServer udpServer = new UDPServer(20000, scUDPCallback)) {
 ### Server and Client
 `StringTCPClient` `StringTCPServer` `StringUDPServer` is comming after `SocketChannel 7.0`.   
 They will automatically wrap byte array to String UTF-8.  
+`FileTCPClient` `FileTCPServer` is comming after `SocketChannel 8.0`.  
+They provide method to send file directly.  
+`FileStringTCPClient` `FileStringTCPServer` is comming after `SocketChannel 8.0`.  
+They provide method to send file directly and extend from `StringTCPClient` and `StringTCPServer`.   
 
 ### Callback
 `DefaultTCPCallback` and `DefaultUDPCallback` is an empty `SCTCPCallback` and `SCUDPCallback` implementation. You can extends and override these to decrease your code.  
 `EchoTCPCallback` and `EchoUDPCallback` will offer an echo server handler automatically.  
-`StringTCPCallback` and `StringUDPCallback` will automatically transform byte array to String UTF-8. 
+`StringTCPCallback` and `StringUDPCallback` will automatically transform byte array to String UTF-8.   
+`FileDefaultTCPCallback` and `FileStringTCPCallback` extends `DefaultTCPCallback` and `StringTCPCallback` with file transport support.  
+
+### TransportHelper
+Transport Helper will help to transport non-standard data.  
+Now, you can use `FileTransportHelper` to transport files between socket channel instance.  
+
+> All Transport Helper can not run with Manually Mode instance!  
 
 ## Heartbeat
 If you use fully management mode, SocketChannel library will automatically send and reply heartbeat packet every 2 minutes using command code 2.  

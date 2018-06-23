@@ -21,7 +21,7 @@ public class NotificationTask implements Runnable {
             } else if (bean instanceof OnTCPDataArrived) {
                 ((TCPSocket.SCTCPCallback) callback).onDataArrived(bean.getId(), ((OnTCPDataArrived) bean).getObj());
             } else if (bean instanceof OnUnmanagedTCPSocketCreated) {
-                ((TCPSocket.SCTCPCallback) callback).onUnmangedCreated(bean.getId(), ((OnUnmanagedTCPSocketCreated) bean).getSocket());
+                ((TCPSocket.SCTCPCallback) callback).onUnmangedCreated(bean.getId(), ((OnUnmanagedTCPSocketCreated) bean).getTag(), ((OnUnmanagedTCPSocketCreated) bean).getSocket());
             } else if (bean instanceof OnHeartbeat) {
                 ((TCPSocket.SCTCPCallback) callback).onHeartbeat(bean.getId());
             } else {

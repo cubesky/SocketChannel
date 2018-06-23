@@ -36,7 +36,7 @@ public final class TCPSocket {
          * @param id     Client ID
          * @param socket Connected Raw Socket
          */
-        void onUnmangedCreated(long id, Socket socket);
+        void onUnmangedCreated(long id, String tag, Socket socket);
 
         /**
          * When Heartbeat Arrived

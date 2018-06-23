@@ -104,14 +104,18 @@ public class TCPClient implements Closeable {
                                         messageLoop.offer(new NotificationTask(scTCPCallback, new OnTCPDataArrived(0, resultData)));
                                     } else if (cmd == 1) {
                                         final SocketChannel fsocketChannel = socketChannel;
-                                        final String port = new String(resultData);
+                                        final String umpdata = new String(resultData, "UTF-8");
+                                        String[] portAndTag = umpdata.split("\\|", 2);
+                                        final int port = Integer.valueOf(portAndTag[0]);
+                                        final String tag = portAndTag.length == 1 ? "" : portAndTag[1];
                                         new Thread(new Runnable() {
                                             @Override
                                             public void run() {
-                                                Socket socket = new Socket();
+//                                                Socket socket = new Socket();
                                                 try {
-                                                    socket.connect(new InetSocketAddress(fsocketChannel.socket().getInetAddress().getHostAddress(), Integer.valueOf(port)));
-                                                    messageLoop.offer(new NotificationTask(scTCPCallback, new OnUnmanagedTCPSocketCreated(0, socket)));
+                                                    Socket socket = SocketChannel.open().socket();
+                                                    socket.connect(new InetSocketAddress(fsocketChannel.socket().getInetAddress().getHostAddress(), port));
+                                                    messageLoop.offer(new NotificationTask(scTCPCallback, new OnUnmanagedTCPSocketCreated(0, tag, socket)));
                                                 } catch (IOException e) {
                                                     e.printStackTrace();
                                                 }
@@ -160,14 +164,18 @@ public class TCPClient implements Closeable {
 
     /**
      * Request an Unmanaged Socket in IO Mode
+     *
+     * @param tag Tag for Socket
      */
-    public void createUnmanagedSocket() {
+    public void createUnmanagedSocket(String tag) {
         if (manuallyMode) return;
+        final String finalTag = (tag == null) ? "" : tag;
         new Thread(new Runnable() {
             @Override
             public void run() {
-                ByteBuffer buffer = ByteBuffer.allocate(1);
+                ByteBuffer buffer = ByteBuffer.allocate(1 + finalTag.getBytes().length);
                 buffer.put(new byte[]{1});
+                buffer.put(finalTag.getBytes());
                 buffer.flip();
                 try {
                     socketChannel.write(buffer);
@@ -176,6 +184,13 @@ public class TCPClient implements Closeable {
                 }
             }
         }).start();
+    }
+
+    /**
+     * Request an Unmanaged Socket in IO Mode with no tag
+     */
+    public void createUnmanagedSocket() {
+        createUnmanagedSocket("");
     }
 
     /**
@@ -225,6 +240,15 @@ public class TCPClient implements Closeable {
                 }
             }
         }).start();
+    }
+
+    /**
+     * Return if this instance is in manually mode
+     *
+     * @return
+     */
+    public boolean isManuallyMode() {
+        return manuallyMode;
     }
 
     /**
