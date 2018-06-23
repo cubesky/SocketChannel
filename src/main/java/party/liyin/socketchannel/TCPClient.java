@@ -111,7 +111,6 @@ public class TCPClient implements Closeable {
                                         new Thread(new Runnable() {
                                             @Override
                                             public void run() {
-//                                                Socket socket = new Socket();
                                                 try {
                                                     Socket socket = SocketChannel.open().socket();
                                                     socket.connect(new InetSocketAddress(fsocketChannel.socket().getInetAddress().getHostAddress(), port));

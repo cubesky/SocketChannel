@@ -141,7 +141,6 @@ public class TCPServer implements Closeable {
                                                     final ServerSocketChannel unmanagedServerSocketChannel = ServerSocketChannel.open();
                                                     final ServerSocket serverSocket = unmanagedServerSocketChannel.socket();
                                                     serverSocket.bind(new InetSocketAddress("0.0.0.0", 0));
-//                                                    final ServerSocket serverSocket = new ServerSocket(0);
                                                     byte[] port = String.valueOf(serverSocket.getLocalPort()).getBytes();
                                                     ByteBuffer buffer = ByteBuffer.allocate(1 + port.length + 1 + tag.getBytes().length);
                                                     buffer.put(new byte[]{1});
