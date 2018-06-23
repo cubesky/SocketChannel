@@ -154,7 +154,7 @@ public class TCPServer implements Closeable {
                                                         public void run() {
                                                             try {
                                                                 Socket socket = unmanagedServerSocketChannel.accept().socket();
-                                                                serverSocket.close();
+                                                                unmanagedServerSocketChannel.close();
                                                                 messageLoop.offer(new NotificationTask(scTCPCallback, new OnUnmanagedTCPSocketCreated(fid, tag, socket)));
                                                             } catch (Exception ignored) {
                                                             }
@@ -279,6 +279,7 @@ public class TCPServer implements Closeable {
                         public void run() {
                             try {
                                 Socket socket = serverSocket.accept();
+                                unmanagedServerSocketChannel.close();
                                 messageLoop.offer(new NotificationTask(scTCPCallback, new OnUnmanagedTCPSocketCreated(fid, new String(finalTag, "UTF-8"), socket)));
                             } catch (Exception ignored) {
                             }
