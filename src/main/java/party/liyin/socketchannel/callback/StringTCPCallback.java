@@ -12,5 +12,5 @@ public abstract class StringTCPCallback extends DefaultTCPCallback {
         }
     }
 
-    abstract void onDataArrived(long id, String obj);
+    public abstract void onDataArrived(long id, String obj);
 }

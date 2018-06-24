@@ -12,5 +12,5 @@ public abstract class StringUDPCallback extends DefaultUDPCallback {
         }
     }
 
-    abstract void onDataArrived(String ip, int port, String obj);
+    public abstract void onDataArrived(String ip, int port, String obj);
 }
