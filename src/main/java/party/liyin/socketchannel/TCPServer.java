@@ -12,10 +12,7 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.ByteBuffer;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
+import java.nio.channels.*;
 import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -338,6 +335,7 @@ public class TCPServer implements Closeable {
                 public void run() {
                     try {
                         peerMap.inverse().get(fid).write(buffer);
+                    } catch (ClosedChannelException ignore) {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
