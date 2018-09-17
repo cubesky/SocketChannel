@@ -360,6 +360,7 @@ public class TCPServer implements Closeable {
                 public void run() {
                     try {
                         socketChannel.write(ByteBuffer.wrap(boardcastarray));
+                    } catch (ClosedChannelException ignore) {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
