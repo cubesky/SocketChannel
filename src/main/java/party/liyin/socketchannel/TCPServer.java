@@ -172,6 +172,8 @@ public class TCPServer implements Closeable {
                             selectionKeyIterator.remove();
                         }
                     }
+                } catch (ClosedSelectorException ignore) {
+                    //Ignore
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
