@@ -115,6 +115,21 @@ TCPClient tcpClient = new TCPClient(new InetSocketAddress("127.0.0.1", 20000), s
 tcpClient.start();
 ```
 
+or
+
+```java
+TCPClient tcpClient = new TCPClient(new InetSocketAddress("127.0.0.1", 20000), scTCPCallback); //127.0.0.1 is your server ip and 20000 is your server port
+tcpClient.startAsync(new TCPSocket.SCTCPConnectResultCallback() {
+    void onConnect() {
+        //This will call after global CONNECTED callback, so you can ignore in default.
+    }
+    
+    void onError() {
+        //When Connection Error
+    }
+});
+```
+
 ##### Fully Management Mode
 This library will add a byte as command code before your data, if you don't want to use `createUnmanagedSocket` and Auto Heartbeat feature, you can use this to disable this feature.
 If you do this, `createUnmanagedSocket` will immediately return without do anything. You need create `TCPSocket` as Manually Mode too.

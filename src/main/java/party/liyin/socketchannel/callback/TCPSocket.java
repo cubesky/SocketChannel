@@ -10,6 +10,12 @@ public final class TCPSocket {
         CONNECT, DISCONNECT, CLOSED
     }
 
+    public interface SCTCPConnectResultCallback {
+        void onConnect();
+
+        void onError();
+    }
+
     /**
      * TCP Callback
      */

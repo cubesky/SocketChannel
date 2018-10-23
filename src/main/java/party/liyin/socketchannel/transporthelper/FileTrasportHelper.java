@@ -4,9 +4,7 @@ import party.liyin.socketchannel.TCPClient;
 import party.liyin.socketchannel.TCPServer;
 import party.liyin.socketchannel.exception.OperationNotSupportException;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
@@ -69,7 +67,12 @@ public class FileTrasportHelper {
             return new FileTransportBean(true, true, command[2], channel, Long.valueOf(command[3]));
         } else { //Sender
             fileInfoList.remove(command[1]);
-            FileChannel fileChannel = FileChannel.open(info.toPath(), StandardOpenOption.READ);
+            FileChannel fileChannel;
+            if (System.getProperty("java.version").startsWith("1.6")) {
+                fileChannel = new FileInputStream(info).getChannel();
+            } else {
+                fileChannel = FileChannel.open(info.toPath(), StandardOpenOption.READ);
+            }
             fileChannel.transferTo(0, Long.valueOf(command[3]), socket.getChannel());
             fileChannel.close();
             return new FileTransportBean(true, false, command[2]);
@@ -85,7 +88,12 @@ public class FileTrasportHelper {
      */
     public static void saveFileFromBean(FileTransportBean bean, File output) throws IOException {
         if (bean.isHandled() && bean.isNeedOperation() && bean.getFilename() != null) {
-            FileChannel fileChannel = FileChannel.open(output.toPath(), StandardOpenOption.CREATE_NEW, StandardOpenOption.WRITE);
+            FileChannel fileChannel;
+            if (System.getProperty("java.version").startsWith("1.6")) {
+                fileChannel = new FileOutputStream(output).getChannel();
+            } else {
+                fileChannel = FileChannel.open(output.toPath(), StandardOpenOption.CREATE_NEW, StandardOpenOption.WRITE);
+            }
             fileChannel.transferFrom(bean.getChannel(), 0, bean.getFileLength());
             fileChannel.close();
             bean.getChannel().close();

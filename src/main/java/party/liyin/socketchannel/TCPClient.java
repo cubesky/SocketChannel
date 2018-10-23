@@ -49,6 +49,27 @@ public class TCPClient implements Closeable {
     }
 
     /**
+     * Start Non-block TCP Client in new Thread
+     *
+     * @param startCallback TCP Connect Result Callback
+     */
+    public void startAsync(final TCPSocket.SCTCPConnectResultCallback startCallback) {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    start();
+                    if (startCallback != null) startCallback.onConnect();
+                } catch (IOException e) {
+                    if (startCallback != null) startCallback.onError();
+                }
+            }
+        });
+        thread.setDaemon(true);
+        thread.start();
+    }
+
+    /**
      * Start Non-block TCP Client
      *
      * @throws IOException
