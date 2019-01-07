@@ -169,16 +169,16 @@ public class TCPClient implements Closeable {
     /**
      * Close All
      *
-     * @throws IOException Close Error
+     * @throws Exception Close error
      */
-    public void stop() throws IOException {
-        try {
+    public void stop() throws Exception {
+        if (selector != null) {
             selector.close();
-        } catch (IOException ignored) {
+            selector = null;
         }
-        try {
+        if (socketChannel != null) {
             socketChannel.close();
-        } catch (IOException ignored) {
+            socketChannel = null;
         }
     }
 
