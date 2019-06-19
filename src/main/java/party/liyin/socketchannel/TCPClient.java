@@ -274,10 +274,13 @@ public class TCPClient implements Closeable {
     /**
      * Stop
      *
-     * @throws IOException
      */
     @Override
-    public void close() throws IOException {
-        stop();
+    public void close() {
+        try {
+            stop();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
