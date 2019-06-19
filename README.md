@@ -232,6 +232,11 @@ Now, you can use `FileTransportHelper` to transport files between socket channel
 If you use fully management mode, SocketChannel library will automatically send and reply heartbeat packet every 2 minutes using command code 2.  
 In Manually Mode, this feature will be disabled.
 
+## ChannelWrapper
+Use ChannelWrapper to transform unsupport NIO stream to NIO Channel.
+### SystemInChannel
+This channel transform `System.in` to an `Pipe.SourceChannel`, call `ChannelWrapper.SystemIn.getSystemInChannel()` to get Channel. Be careful, only one Channel will be create, even if you call this method many times!
+
 ## Dependency
 
 | Name  | Description                    | Package Name       |  

@@ -6,36 +6,60 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="6fe68f5b-3562-498f-8ed9-445e5b8b4ae4" name="Default" comment="Feature: Channel Wrapper for System.in&#10;Bump Version: 8.8">
+      <change afterPath="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/ChannelWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/bean/NodeBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/exception/EntryMissingException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/highlevel/DynamicMeshNetwork.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/highlevel/PartialMeshNetwork.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/highlevel/StaticMeshNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/fileContent/annotation-processors.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_1_3_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_errorprone_error_prone_annotations_2_0_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_guava_guava_22_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_j2objc_j2objc_annotations_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_mojo_animal_sniffer_annotations_1_14.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
+    </list>
     <list id="a0c4f7f6-2c8c-4335-8e9e-d9ad67eefc93" name="Ignore" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/socketchannel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/socketchannel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/socketchannel_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/socketchannel_main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/socketchannel_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/socketchannel_test.iml" afterDir="false" />
-    </list>
-    <list default="true" id="6fe68f5b-3562-498f-8ed9-445e5b8b4ae4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/taskHistory/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/taskHistory/fileSnapshots.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/socketchannel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/socketchannel.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/socketchannel_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/socketchannel_main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/socketchannel_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/socketchannel_test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/publications/mavenJava/pom-default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/publications/mavenJava/pom-default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/publishMavenJavaPublicationToMavenRepository/party/liyin/socketchannel/maven-metadata-remote.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/publishMavenJavaPublicationToMavenRepository/party/liyin/socketchannel/maven-metadata-remote.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/publishMavenJavaPublicationToMavenRepository/party/liyin/socketchannel/resolver-status.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/publishMavenJavaPublicationToMavenRepository/party/liyin/socketchannel/resolver-status.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/DefaultServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/DefaultServer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -64,7 +88,7 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="socketchannel" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="other" type="c8890929:TasksNode$1" />
+                <item name="publishing" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -74,51 +98,35 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DefaultSCCallback.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/DefaultSCCallback.java">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/ChannelWrapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1634">
-              <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+            <state relative-caret-position="456">
+              <caret line="42" column="59" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#830#831#0" expanded="true" />
-                <element signature="e#879#880#0" expanded="true" />
-                <element signature="e#1309#1310#0" expanded="true" />
-                <element signature="e#1358#1359#0" expanded="true" />
+                <element signature="e#626#1316#0" expanded="true" />
+                <element signature="e#1315#1316#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultServer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/DefaultServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="26" column="59" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1307#1308#0" expanded="true" />
-                <element signature="e#1350#1351#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TCPClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/TCPClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2666">
-              <caret line="158" column="27" selection-start-line="158" selection-start-column="12" selection-end-line="158" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+            <state relative-caret-position="152">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="402">
+              <caret line="237" column="216" selection-start-line="237" selection-start-column="216" selection-end-line="237" selection-end-column="216" />
             </state>
           </provider>
         </entry>
@@ -135,377 +143,76 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>flip</find>
+      <find>Socket</find>
+      <find>toPath</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GradleLocalSettings">
-    <option name="myGradleHomes">
-      <map>
-        <entry key="$PROJECT_DIR$" value="D:\Development\BuildTools\Gradle\gradle-4.2.1" />
-      </map>
-    </option>
-    <option name="myGradleVersions">
-      <map>
-        <entry key="$PROJECT_DIR$" value="4.2.1" />
-      </map>
-    </option>
-    <option name="availableProjects">
-      <map>
-        <entry>
-          <key>
-            <ExternalProjectPojo>
-              <option name="name" value="socketchannel" />
-              <option name="path" value="$PROJECT_DIR$" />
-            </ExternalProjectPojo>
-          </key>
-          <value>
-            <list>
-              <ExternalProjectPojo>
-                <option name="name" value="socketchannel" />
-                <option name="path" value="$PROJECT_DIR$" />
-              </ExternalProjectPojo>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="availableTasks">
-      <map>
-        <entry key="$PROJECT_DIR$">
-          <value>
-            <list>
-              <ExternalTaskPojo>
-                <option name="description" value="Publishes Maven publication 'mavenJava' to Maven repository 'maven'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="publishMavenJavaPublicationToMavenRepository" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by root project 'socketchannel'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="components" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project and all projects that depend on it." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="buildDependents" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of root project 'socketchannel'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="projects" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles main classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="classes" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the dependent components of components in root project 'socketchannel'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="dependentComponents" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all buildscript dependencies declared in root project 'socketchannel'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="buildEnvironment" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates Gradle wrapper files." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="wrapper" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles test classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="testClasses" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates Javadoc API documentation for the main source code." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="javadoc" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates the Maven POM file for publication 'mavenJava'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="generatePomFileForMavenJavaPublication" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles a jar archive containing the main classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="jar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of root project 'socketchannel'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="model" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Processes main resources." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="processResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from root project 'socketchannel'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="tasks" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Initializes a new Gradle build." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="init" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Publishes Maven publication 'mavenJava' to the local Maven repository." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="publishMavenJavaPublicationToMavenLocal" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs the unit tests." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="test" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Compiles main Java source." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="compileJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in root project 'socketchannel'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="dependencyInsight" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs all checks." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="check" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles the outputs of this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="assemble" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Deletes the build directory." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="clean" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Compiles test Java source." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="compileTestJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in root project 'socketchannel'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="dependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Processes test resources." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="processTestResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays a help message." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="help" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="build" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Installs the 'archives' artifacts into the local Maven repository." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="install" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project and all projects it depends on." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="buildNeeded" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Publishes all publications produced by this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="publish" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Publishes all Maven publications produced by this project to the local Maven cache." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="publishToMavenLocal" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of root project 'socketchannel'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="properties" />
-              </ExternalTaskPojo>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="modificationStamps">
-      <map>
-        <entry key="$USER_HOME$/.gradle/gradle.properties" value="1677215601" />
-        <entry key="$PROJECT_DIR$" value="6075104808965" />
-        <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="2831746225" />
-        <entry key="$PROJECT_DIR$/settings.gradle" value="136524160" />
-      </map>
-    </option>
-    <option name="projectBuildClasspath">
-      <map>
-        <entry key="$PROJECT_DIR$">
-          <value>
-            <ExternalProjectBuildClasspathPojo>
-              <option name="modulesBuildClasspath">
-                <map>
-                  <entry key="$PROJECT_DIR$">
-                    <value>
-                      <ExternalModuleBuildClasspathPojo>
-                        <option name="path" value="$PROJECT_DIR$" />
-                      </ExternalModuleBuildClasspathPojo>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-              <option name="name" value="socketchannel" />
-              <option name="projectBuildClasspath">
-                <list>
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/ant-1.9.6.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/ant-launcher-1.9.6.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-base-services-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-base-services-groovy-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-build-cache-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-cli-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-core-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-core-api-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-docs-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-installation-beacon-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-jvm-services-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-kotlin-dsl-0.11.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-kotlin-dsl-tooling-builders-0.11.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-kotlin-dsl-tooling-models-0.11.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-launcher-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-logging-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-messaging-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-model-core-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-model-groovy-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-native-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-persistent-cache-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-process-services-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-resources-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-runtime-api-info-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-tooling-api-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/gradle-wrapper-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/groovy-all-2.4.12.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-announce-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-antlr-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-build-cache-http-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-build-comparison-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-build-init-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-code-quality-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-composite-builds-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-dependency-management-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-diagnostics-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-ear-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-ide-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-ide-native-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-ide-play-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-ivy-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-jacoco-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-javascript-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-language-groovy-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-language-java-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-language-jvm-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-language-native-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-language-scala-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-maven-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-osgi-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-platform-base-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-platform-jvm-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-platform-native-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-platform-play-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-plugin-development-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-plugin-use-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-plugins-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-publish-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-reporting-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-resources-gcs-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-resources-http-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-resources-s3-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-resources-sftp-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-scala-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-signing-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-test-kit-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-testing-base-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-testing-jvm-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-testing-native-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-tooling-api-builders-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/gradle-workers-4.2.1.jar" />
-                  <option value="$PROJECT_DIR$/../../../BuildTools/Gradle/gradle-4.2.1/lib/plugins/ivy-2.2.0.jar" />
-                  <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
-                  <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
-                </list>
-              </option>
-            </ExternalProjectBuildClasspathPojo>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="projectSyncType">
-      <map>
-        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
-      </map>
-    </option>
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/party/liyin/socketchannel/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/Utils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/NotificationBean_ConnectionState.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/NotificationBean_UnmanagedCreated.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/NotificationBean_DataArrived_UDP.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/SkySocket.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/MessageQueue.java" />
-        <option value="$PROJECT_DIR$/LICENSE" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/NotificationBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/Notification.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/Notification_ConnectionState.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/ConnectionStateNotification.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/Notification_DataArrived.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/TCPDataArrivedNotification.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/Notification_DataArrived_UDP.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/UDPDataArrivedNotification.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/Notification_UnmanagedCreated.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/UnmanagedTCPSocketCreatedNotification.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/NotificationRunnable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/NotificationTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/SkyBaseCallback.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/SCBaseCallback.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/UDPSocket.java" />
-        <option value="/Java Fragment (README.md:272).java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/TCPClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/TCPServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/TCPSocket.java" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/test/java/party/liyin/socketchannel/TestWrapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/DefaultSCCallback.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/defaults/StringTCPClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/DefaultServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/notification/ConnectionStateNotification.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/UDPSocket.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/notification/Notification.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/notification/TCPHeartbeatArrivedNotification.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/notification/ConnectionStateChanged.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/notification/TCPDataArrivedNotification.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/notification/UDPDataArrivedNotification.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/notification/UnmanagedTCPSocketCreatedNotification.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/MessageQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/UDPServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/UDPSocket.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/DefaultUDPCallback.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/EchoTCPCallback.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/DefaultSCCallback.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/EchoUDPServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/StringTCPCallback.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/BaseCallback.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/defaults/StringUDPSocket.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/SCBaseCallback.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/DefaultTCPCallback.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/notification/OnUnmanagedTCPSocketCreated.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/notification/NotificationTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/handler/FileHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/exception/DependencyMissingException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/exception/OperationNotSupportException.java" />
+        <option value="$PROJECT_DIR$/src/test/java/party/liyin/socketchannel/NUnmanged.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/FileTCPCallback.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/FileDefaultTCPCallback.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/FileStringTCPCallback.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/FileTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/defaults/FileTCPClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/defaults/FileTCPServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/defaults/FileStringClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/defaults/FileStringTCPClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/defaults/FileStringTCPServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/StringUDPCallback.java" />
+        <option value="$PROJECT_DIR$/src/test/java/party/liyin/socketchannel/UFileTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/bean/NodeBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/exception/EntryMissingException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/highlevel/StaticMeshNetwork.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/TCPServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/transporthelper/FileTrasportHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/TCPSocket.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/TCPClient.java" />
+        <option value="$PROJECT_DIR$/src/test/java/party/liyin/socketchannel/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/Test.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/ChannelWrapper.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="881" />
-    <option name="y" value="188" />
-    <option name="width" value="974" />
-    <option name="height" value="609" />
+    <option name="x" value="660" />
+    <option name="y" value="50" />
+    <option name="width" value="735" />
+    <option name="height" value="870" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -551,6 +258,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -588,6 +297,15 @@
               <item name="socketchannel" type="b2602c69:ProjectViewProjectNode" />
               <item name="SocketChannel" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="socketchannel" type="462c0819:PsiDirectoryNode" />
+              <item name="transporthelper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="socketchannel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocketChannel" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
@@ -601,36 +319,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="socketchannel" type="cbb8eebc:String" user="socketchannel" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="socketchannel" type="58d84e3e:PackageViewProjectNode" />
-              <item name="socketchannel" type="eaaa3913:PackageViewModuleGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SameSentence" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../flazrlibrary" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15305164" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.23474178" />
   </component>
   <component name="RunDashboard">
@@ -645,12 +342,32 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.SocketChannel [publish]">
-    <configuration default="true" type="Applet" factoryName="Applet">
+  <component name="RunManager" selected="Application.Test">
+    <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="party.liyin.socketchannel.Test" />
+      <module name="socketchannel_main" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="party.liyin.socketchannel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="SocketChannel [publish]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -668,8 +385,30 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
     </configuration>
-    <configuration name="TestWrapper.client" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Test.test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;party.liyin.socketchannel.Test.test&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UFileTest.client" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="socketchannel_test" />
       <extension name="coverage">
         <pattern>
@@ -677,22 +416,16 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="party.liyin.socketchannel" />
-      <option name="MAIN_CLASS_NAME" value="party.liyin.socketchannel.TestWrapper" />
+      <option name="MAIN_CLASS_NAME" value="party.liyin.socketchannel.UFileTest" />
       <option name="METHOD_NAME" value="client" />
       <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="TestWrapper.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UFileTest.server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="socketchannel_test" />
       <extension name="coverage">
         <pattern>
@@ -700,132 +433,54 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="party.liyin.socketchannel" />
-      <option name="MAIN_CLASS_NAME" value="party.liyin.socketchannel.TestWrapper" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="party.liyin.socketchannel.UFileTest" />
+      <option name="METHOD_NAME" value="server" />
       <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="TestWrapper.udp1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="socketchannel_test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="party.liyin.socketchannel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="party.liyin.socketchannel" />
-      <option name="MAIN_CLASS_NAME" value="party.liyin.socketchannel.TestWrapper" />
-      <option name="METHOD_NAME" value="udp1" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="TestWrapper.udp2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="socketchannel_test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="party.liyin.socketchannel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="party.liyin.socketchannel" />
-      <option name="MAIN_CLASS_NAME" value="party.liyin.socketchannel.TestWrapper" />
-      <option name="METHOD_NAME" value="udp2" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
+    <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.TestWrapper.client" />
-      <item itemvalue="JUnit.TestWrapper.udp1" />
-      <item itemvalue="JUnit.TestWrapper.udp2" />
       <item itemvalue="Gradle.SocketChannel [publish]" />
-      <item itemvalue="JUnit.TestWrapper.test" />
+      <item itemvalue="JUnit.UFileTest.server" />
+      <item itemvalue="JUnit.UFileTest.client" />
+      <item itemvalue="Gradle.Test.test" />
+      <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Gradle.Test.test" />
         <item itemvalue="Gradle.SocketChannel [publish]" />
-        <item itemvalue="JUnit.TestWrapper.test" />
-        <item itemvalue="JUnit.TestWrapper.udp2" />
-        <item itemvalue="JUnit.TestWrapper.udp1" />
-        <item itemvalue="JUnit.TestWrapper.client" />
+        <item itemvalue="JUnit.UFileTest.client" />
+        <item itemvalue="JUnit.UFileTest.server" />
       </list>
     </recent_temporary>
   </component>
@@ -911,107 +566,182 @@
       <option name="project" value="LOCAL" />
       <updated>1528431500052</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Feat: DefaultTCPClient / 6.1">
+      <created>1528432343860</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1528432343860</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Refator: Refator Classes&#10;Feat: Auto Heartbeat&#10;Bump Version: 7.0">
+      <created>1528446580341</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1528446580341</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Feat: create UnmanagedSocket with tag&#10;Feat: File Transport Helper&#10;Feat: File Callback Shortcut&#10;Feat: File Server and Client Shortcut&#10;Fix: Unmanaged Socket now has channel.&#10;Bump Version: 8.0">
+      <created>1529746941594</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1529746941594</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Refactor: clean code">
+      <created>1529747005250</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1529747005250</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fix: Create Unmanaged Socket ServerSocket leak.&#10;Bump Version: 8.1">
+      <created>1529777022090</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1529777022090</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Fix: StringTCPCallback visibility issue&#10;Bump Version: 8.2">
+      <created>1529806644252</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1529806644252</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Fix: Ignore ClosedChannelException&#10;Bump Version: 8.3">
+      <created>1537179512649</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1537179512649</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Fix: Ignore ClosedChannelException&#10;Bump Version: 8.4">
+      <created>1537184917942</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1537184917942</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fix: Ignore ClosedChannelException when close&#10;Bump Version: 8.5">
+      <created>1537689429695</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1537689429695</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Fix: Support Android Outdated Version&#10;Bump Version: 8.6">
+      <created>1539484161653</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1539484161654</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Refector: Improve Android Compatibility&#10;Feature: TCP Client Async call when start&#10;Bump Version: 8.7">
+      <created>1540262223097</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1540262223097</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestWrapper_server - 2017.12.01 at 23h 00m 56s.xml">
-      <configuration name="TestWrapper.server" configurationId="JUnit" />
+    <history-entry file="NUnmanged_TestServer - 2018.06.23 at 16h 59m 05s.xml">
+      <configuration name="NUnmanged.TestServer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestWrapper_test - 2018.03.29 at 14h 55m 55s.xml">
-      <configuration name="TestWrapper.test" configurationId="JUnit" />
+    <history-entry file="NUnmanged_TestServer - 2018.06.23 at 17h 16m 44s.xml">
+      <configuration name="NUnmanged.TestServer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestWrapper_test - 2018.03.29 at 14h 56m 20s.xml">
-      <configuration name="TestWrapper.test" configurationId="JUnit" />
+    <history-entry file="NUnmanged_TestClient - 2018.06.23 at 17h 16m 46s.xml">
+      <configuration name="NUnmanged.TestClient" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestWrapper_test - 2018.03.29 at 14h 57m 21s.xml">
-      <configuration name="TestWrapper.test" configurationId="JUnit" />
+    <history-entry file="UFileTest_server - 2018.06.24 at 10h 08m 03s.xml">
+      <configuration name="UFileTest.server" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestWrapper_udp1 - 2017.12.01 at 23h 31m 11s.xml">
-      <configuration name="TestWrapper.udp1" configurationId="JUnit" />
+    <history-entry file="UFileTest_client - 2018.06.24 at 10h 08m 05s.xml">
+      <configuration name="UFileTest.client" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestWrapper_udp1 - 2017.12.01 at 23h 38m 02s.xml">
-      <configuration name="TestWrapper.udp1" configurationId="JUnit" />
+    <history-entry file="Test_test - 2019.06.19 at 18h 16m 04s.xml">
+      <configuration name="Test.test" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="TestWrapper_udp1 - 2017.12.01 at 23h 39m 45s.xml">
-      <configuration name="TestWrapper.udp1" configurationId="JUnit" />
+    <history-entry file="Test_test - 2019.06.19 at 18h 16m 40s.xml">
+      <configuration name="Test.test" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="TestWrapper_udp2 - 2017.12.01 at 23h 31m 12s.xml">
-      <configuration name="TestWrapper.udp2" configurationId="JUnit" />
+    <history-entry file="Test_test - 2019.06.19 at 18h 17m 59s.xml">
+      <configuration name="Test.test" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="TestWrapper_udp2 - 2017.12.01 at 23h 38m 04s.xml">
-      <configuration name="TestWrapper.udp2" configurationId="JUnit" />
+    <history-entry file="Test_test - 2019.06.19 at 18h 18m 29s.xml">
+      <configuration name="Test.test" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="TestWrapper_udp2 - 2017.12.01 at 23h 39m 38s.xml">
-      <configuration name="TestWrapper.udp2" configurationId="JUnit" />
+    <history-entry file="Test_test - 2019.06.19 at 18h 19m 18s.xml">
+      <configuration name="Test.test" configurationId="GradleRunConfiguration" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5028653" side_tool="true" weight="0.4116829" />
-      <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48827294" visible="true" weight="0.24249166" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.48880598" weight="0.32703003" />
-      <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18550107" />
-      <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49713466" weight="0.5202109" />
-      <window_info anchor="right" id="Gradle" order="6" visible="true" weight="0.304371" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19936034" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="SFDX" order="11" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32925472" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48827294" visible="true" weight="0.25612473" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Log Manager" order="11" />
-      <window_info anchor="bottom" id="Salesforce" order="11" />
-      <window_info anchor="bottom" id="Execute Anonymous" order="11" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.4975278" weight="0.3283582" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.4975278" weight="0.32684284" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5028653" side_tool="true" weight="0.4116829" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.48880598" weight="0.24053451" />
+      <window_info anchor="bottom" id="SFDX" order="11" />
+      <window_info anchor="bottom" id="Log Manager" order="12" />
+      <window_info anchor="bottom" id="Salesforce" order="13" />
+      <window_info anchor="bottom" id="Execute Anonymous" order="14" />
+      <window_info anchor="bottom" id="Build" order="15" sideWeight="0.49713466" weight="0.5194661" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Gradle" order="6" weight="0.35287845" />
+      <window_info anchor="right" id="Maven" order="7" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Salesforce" order="14" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Gradle" order="6" visible="true" weight="0.30444127" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.48827294" weight="0.24249166" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23280802" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info anchor="bottom" id="Log Manager" order="15" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25573066" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
-      <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Execute Anonymous" order="13" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.48880598" weight="0.32777777" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5028653" side_tool="true" visible="true" weight="0.4116829" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="0" sideWeight="0.49713466" visible="true" weight="0.4116829" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4975278" weight="0.3283582" />
-      <window_info anchor="bottom" id="SFDX" order="12" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32925472" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48827294" visible="true" weight="0.24200279" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.4975278" weight="0.32684284" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5028653" side_tool="true" weight="0.4116829" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.48880598" weight="0.32703003" />
+      <window_info anchor="bottom" id="SFDX" order="11" />
+      <window_info anchor="bottom" id="Log Manager" order="12" />
+      <window_info anchor="bottom" id="Salesforce" order="13" />
+      <window_info anchor="bottom" id="Execute Anonymous" order="14" />
+      <window_info anchor="bottom" id="Build" order="15" sideWeight="0.49713466" weight="0.5202109" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Gradle" order="6" weight="0.4090258" />
     </layout-to-restore>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -1026,7 +756,18 @@
     <MESSAGE value="Feat: DefaultCallback / 5.0" />
     <MESSAGE value="Fix: DefaultCallback / 5.1" />
     <MESSAGE value="Feat: DefaultCallback &amp; DefaultServer / 6.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: DefaultCallback &amp; DefaultServer / 6.0" />
+    <MESSAGE value="Feat: DefaultTCPClient / 6.1" />
+    <MESSAGE value="Refator: Refator Classes&#10;Feat: Auto Heartbeat&#10;Bump Version: 7.0" />
+    <MESSAGE value="Feat: create UnmanagedSocket with tag&#10;Feat: File Transport Helper&#10;Feat: File Callback Shortcut&#10;Feat: File Server and Client Shortcut&#10;Fix: Unmanaged Socket now has channel.&#10;Bump Version: 8.0" />
+    <MESSAGE value="Refactor: clean code" />
+    <MESSAGE value="Fix: Create Unmanaged Socket ServerSocket leak.&#10;Bump Version: 8.1" />
+    <MESSAGE value="Fix: StringTCPCallback visibility issue&#10;Bump Version: 8.2" />
+    <MESSAGE value="Fix: Ignore ClosedChannelException&#10;Bump Version: 8.3" />
+    <MESSAGE value="Fix: Ignore ClosedChannelException&#10;Bump Version: 8.4" />
+    <MESSAGE value="Fix: Ignore ClosedChannelException when close&#10;Bump Version: 8.5" />
+    <MESSAGE value="Fix: Support Android Outdated Version&#10;Bump Version: 8.6" />
+    <MESSAGE value="Refector: Improve Android Compatibility&#10;Feature: TCP Client Async call when start&#10;Bump Version: 8.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refector: Improve Android Compatibility&#10;Feature: TCP Client Async call when start&#10;Bump Version: 8.7" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1036,292 +777,364 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/DefaultSCCallback.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/UDPSocket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#830#831#0" expanded="true" />
-            <element signature="e#879#880#0" expanded="true" />
-            <element signature="e#1309#1310#0" expanded="true" />
-            <element signature="e#1358#1359#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="228">
+          <caret line="12" column="19" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/EchoUDPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        <state relative-caret-position="171">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/TCPClient.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/defaults/StringUDPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3382">
-          <caret line="189" column="38" selection-start-line="189" selection-start-column="38" selection-end-line="189" selection-end-column="38" />
+        <state relative-caret-position="133">
+          <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/TCPServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="49" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/TCPServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2622">
-          <caret line="154" column="49" selection-start-line="154" selection-start-column="49" selection-end-line="154" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/party/liyin/socketchannel/TestWrapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/TCPSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.base/java/util/Random.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="421" column="16" selection-start-line="421" selection-start-column="16" selection-end-line="421" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.base/java/util/Queue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2517">
-          <caret line="207" column="7" lean-forward="true" selection-start-line="207" selection-start-column="7" selection-end-line="207" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.base/java/nio/ByteBuffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="1187" column="21" selection-start-line="1187" selection-start-column="17" selection-end-line="1187" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/java/net/InetSocketAddress.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/java/nio/channels/Selector.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/java/net/ServerSocket.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/UDPServer.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/UDPClient.java" />
-    <entry file="file://$PROJECT_DIR$/LICENSE">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="654" column="46" selection-start-line="654" selection-start-column="46" selection-end-line="654" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.base/java/nio/channels/DatagramChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="117" column="22" selection-start-line="117" selection-start-column="22" selection-end-line="117" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/Notification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/ConnectionStateNotification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/TCPDataArrivedNotification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/NotificationTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/UnmanagedTCPSocketCreatedNotification.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/SCBaseCallback.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/UDPDataArrivedNotification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/MessageQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        <state relative-caret-position="133">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/TCPSocket.java">
+    <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="50" column="46" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="46" />
+        <state relative-caret-position="976">
+          <caret line="654" column="46" selection-start-line="654" selection-start-column="46" selection-end-line="654" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/com/sun/org/apache/xpath/internal/operations/String.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/EchoTCPCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/notification/OnUnmanagedTCPSocketCreated.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/notification/NotificationTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
+          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/java/lang/Throwable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-437">
+          <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/java/lang/Exception.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/java/lang/RuntimeException.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/java/nio/file/OpenOption.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/java/io/ByteArrayInputStream.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/sun/nio/ch/FileChannelImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="654" column="16" selection-start-line="654" selection-start-column="16" selection-end-line="654" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/java/nio/channels/ServerSocketChannel.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/modules/test-main.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/DefaultUDPCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/DefaultTCPCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/party/liyin/socketchannel/NUnmanged.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/exception/DependencyMissingException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/defaults/StringTCPClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/defaults/StringTCPServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/defaults/FileStringTCPClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/defaults/FileStringTCPServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/StringUDPCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
           <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/SCBaseCallback.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/StringTCPCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/party/liyin/socketchannel/UFileTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/highlevel/PartialMeshNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/highlevel/DynamicMeshNetwork.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
-          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/exception/OperationNotSupportException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/exception/EntryMissingException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/FileStringTCPCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/highlevel/StaticMeshNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/TCPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2147">
-          <caret line="192" column="35" selection-start-line="192" selection-start-column="16" selection-end-line="192" selection-end-column="35" />
+        <state relative-caret-position="2166">
+          <caret line="131" column="60" selection-start-line="131" selection-start-column="60" selection-end-line="131" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/party/liyin/socketchannel/TestWrapper.java" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="185" lean-forward="true" selection-start-line="185" selection-end-line="194" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/DefaultSCCallback.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/java/nio/channels/FileChannel.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1634">
-          <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#830#831#0" expanded="true" />
-            <element signature="e#879#880#0" expanded="true" />
-            <element signature="e#1309#1310#0" expanded="true" />
-            <element signature="e#1358#1359#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="266">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/UDPSocket.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/bean/NodeBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-821">
-          <caret line="52" column="21" lean-forward="true" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+        <state relative-caret-position="209">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/FileTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="43" lean-forward="true" selection-start-column="43" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/FileDefaultTCPCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/UDPServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-731">
+          <caret line="45" column="44" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/callback/TCPSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="47" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/TCPClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2666">
-          <caret line="158" column="27" selection-start-line="158" selection-start-column="12" selection-end-line="158" selection-end-column="27" />
+        <state relative-caret-position="511">
+          <caret line="62" column="70" lean-forward="true" selection-start-line="62" selection-start-column="70" selection-end-line="62" selection-end-column="70" />
+          <folding>
+            <element signature="e#1812#2161#0" expanded="true" />
+            <element signature="e#2160#2161#0" expanded="true" />
+            <element signature="e#8743#13684#0" expanded="true" />
+            <element signature="e#11681#12566#0" expanded="true" />
+            <element signature="e#12565#12566#0" expanded="true" />
+            <element signature="e#13683#13684#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/DefaultServer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/MessageLoop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="26" column="59" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
+        <state relative-caret-position="79">
+          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/transporthelper/FileTrasportHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1413">
+          <caret line="134" column="26" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1307#1308#0" expanded="true" />
-            <element signature="e#1350#1351#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/defaults/FileTCPServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/defaults/FileTCPClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/party/liyin/socketchannel/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        <state relative-caret-position="152">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/party/liyin/socketchannel/ChannelWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="42" column="59" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#626#1316#0" expanded="true" />
+            <element signature="e#1315#1316#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="237" column="216" selection-start-line="237" selection-start-column="216" selection-end-line="237" selection-end-column="216" />
         </state>
       </provider>
     </entry>
@@ -1382,7 +1195,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>socketchannel_test|socketchannel</last-edited>
+          <last-edited>socketchannel_main|socketchannel</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1395,7 +1208,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Gradle: com.google.code.findbugs:jsr305:1.3.9</last-edited>
+          <last-edited>Gradle: com.google.guava:guava:20.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
